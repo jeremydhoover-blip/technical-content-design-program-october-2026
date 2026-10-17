@@ -77,7 +77,7 @@ In Copilot Chat, `/prep-pr` runs these checks and drafts the description for you
 
 **PR description:** The PR template gives you the sections: Summary, Why, Content decisions, What to review, and Checks. Fill each in. If it is a straightforward addition, one or two sentences per section is fine. The `write-pr-description` skill can draft it.
 
-**CI:** When you open the PR, GitHub runs `npm run check`, `npm run evals`, and `npm run build`. A green check means they passed. A red X means one failed. Open the details, read the message, fix it, and push again.
+**CI:** When you open the PR, GitHub runs `npm run check:tooling`, `npm run check`, `npm run evals`, and `npm run build`. A green check means they passed. A red X means one failed. Open the details, read the message, fix it, and push again.
 
 **Merge:** After the checks pass and you have reviewed your own diff, click **Merge pull request**. Then update your local copy:
 
@@ -95,7 +95,6 @@ git pull
 - `content/instructions.md` (Week 3)
 - `content/evals.json` (Week 4)
 - The values in `src/strings.json`. Never rename a key.
-- Your `README.md` reflection (Week 4)
 
 **Edit with care (only if you've found an error):**
 - Exercise files (`exercises/week-*/README.md`, etc.)

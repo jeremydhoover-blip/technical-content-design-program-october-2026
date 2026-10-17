@@ -31,4 +31,4 @@ These files are the weekly task cards. The instructor authors them. Participants
 - Week 1: Fork, clone, run the app, orient in the repo
 - Week 2: Edit files, commit, open and merge a pull request
 - Week 3: Turn the content system into AI instructions and test them
-- Week 4: Write evals, add a CI check, present the system
+- Week 4: Write evals, inspect the existing CI workflow, present the system

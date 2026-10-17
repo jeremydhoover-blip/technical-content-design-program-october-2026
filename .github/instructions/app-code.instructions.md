@@ -11,7 +11,7 @@ The app code belongs to engineering. Participants are content designers.
 - Do not change app logic unless the participant explicitly asks.
 - If a participant wants copy changed, edit `src/strings.json` values, not the code.
 - Shared logic is in `src/lib/` and runs in both the browser and Node. Keep it free of DOM and Node APIs.
-- Scripts in `scripts/` print plain output with `[ok]`, `[warn]`, `[fail]` prefixes. Keep that format.
+- Keep script output plain and consistent with each script's existing status prefixes. Return a nonzero exit code when a check fails.
 - Explain code in plain language. Do not assume the participant reads JavaScript.
 
 ## Helping a participant read the code

@@ -16,6 +16,7 @@ content/examples/luma/  A finished example to read, not copy
 exercises/              Weekly task cards, learning objectives, hints, prep
 scripts/                doctor, check, evals, and prompt commands
 docs/                   Setup, AI tooling guide, key terms, repository map
+public/                 App images and favicon
 checklists/             Pre-PR and PR review checklists
 src/                    The ContentLab app. You edit strings.json only
 .github/                Copilot skills, prompts, agents, instructions, and CI
@@ -62,6 +63,7 @@ Full instructions are in [docs/SETUP.md](docs/SETUP.md).
 |---|---|
 | `npm run dev` | Starts the app |
 | `npm run doctor` | Checks your setup |
+| `npm run check:tooling` | Validates AI tooling and documentation references |
 | `npm run check` | Validates your content files and strings |
 | `npm run evals` | Runs your eval criteria against your samples |
 | `npm run prompt` | Shows the context an AI would get from your files, and its size |
@@ -102,9 +104,3 @@ You also practice the contributor workflow: branches, commits, and pull requests
 ## Questions
 
 Ask in the UXCC Circle community. Your instructor and cohort members are there between sessions.
-
----
-
-## Your reflection
-
-*Add your own reflection here at the end of Week 4.*

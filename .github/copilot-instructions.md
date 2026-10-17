@@ -19,10 +19,13 @@ Each participant builds a content system for their own product across the four w
 | `exercises/week-N/` | Weekly task cards | Instructor |
 | `.github/` | Skills, agents, prompts, instructions, CI | Instructor |
 
+Participant limits do not block instructor-requested maintenance of docs, exercises, or tooling. Shared project rules also live in `AGENTS.md`.
+
 ## Commands
 
 | Command | What it does |
 |---|---|
+| `npm run check:tooling` | Validate AI tooling metadata and documentation references |
 | `npm run dev` | Start the app at http://localhost:5173 |
 | `npm run doctor` | Check Node, Git, and project setup |
 | `npm run check` | Validate content files and strings. `check:strict` also fails on placeholders |
@@ -39,7 +42,7 @@ Each participant builds a content system for their own product across the four w
 
 ## Do not
 
-- Complete exercises for participants
+- Complete exercises for participants. An explicitly requested draft must be labeled for the participant to revise
 - Reveal `exercises/week-N/hints.md` unless the participant asks for a hint
 - Rename, delete, or move keys in `src/strings.json`
 - Rewrite `src/main.js` or `src/lib/` unless explicitly asked
@@ -52,7 +55,7 @@ Each participant builds a content system for their own product across the four w
 |---|---|---|
 | `setup-doctor` | Skill | Install, start, or git problems |
 | `edit-strings` | Skill | Changing text in `src/strings.json` |
-| `commit-message` | Skill | Committing and pushing |
+| `commit-message` | Skill | Reviewing a diff and drafting a commit message |
 | `write-pr-description` | Skill | Opening a pull request |
 | `content-writer` | Skill | Writing copy with the participant's rules |
 | `copy-review` | Skill | Checking copy against the rules |
@@ -71,7 +74,7 @@ See `docs/AI-TOOLING.md` for how these work.
 
 ## Workflow
 
-Fork the repo. Clone the fork. Work on a branch named `your-name/week-N`. Open a pull request on your own fork. CI runs `npm run check`, `npm run evals`, and `npm run build`. See `CONTRIBUTING.md`.
+Fork the repo. Clone the fork. Work on a branch named `your-name/week-N`. Open a pull request on your own fork. CI runs `npm run check:tooling`, `npm run check`, `npm run evals`, and `npm run build`. See `CONTRIBUTING.md`.
 
 ## Writing style for this repo
 

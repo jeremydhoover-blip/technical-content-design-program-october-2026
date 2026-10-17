@@ -43,7 +43,7 @@ For content designers, this matters because: the systems being built around thes
 There are three ways to get your content system in front of Copilot. Your instructor demos each.
 
 1. **Attach files.** In Copilot Chat, type `#file` and pick `content/instructions.md` and your foundations files. This works for one conversation.
-2. **Add an instructions file.** `.github/copilot-instructions.md` is read on every request in this repo. A line in it that points to your files means Copilot always knows your rules.
+2. **Add an instructions file.** `.github/copilot-instructions.md` provides repo instructions in supported Copilot sessions when enabled. Add a line asking Copilot to read your product files when writing copy, then check the response references to confirm which files it used.
 3. **Use a skill.** The `content-writer` skill loads your files and writes copy with them.
 
 A fourth way exists for larger systems: **MCP** (Model Context Protocol), a standard that lets AI tools connect to outside data and services. You won't build one in this program. The idea is the same as what you just did. Give the AI structured context from outside the chat.

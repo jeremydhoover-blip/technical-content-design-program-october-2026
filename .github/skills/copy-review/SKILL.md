@@ -12,7 +12,7 @@ Review copy against the participant's rules, not generic style opinions.
 
 1. Identify the copy and its component. If the component is unclear, ask.
 2. Run the measurable checks: `npm run evals -- --text "<copy>" --component <component>`. Report each failing criterion exactly as printed.
-3. Read `content/foundations/voice-and-tone.md`, `grammar-and-style.md`, and `component-patterns.md`. Skip a file that is still placeholders and say so.
+3. Read `content/instructions.md` and all five files in `content/foundations/`, including personas and accessibility. Skip a file that is still placeholders and say so.
 4. Judge what the evals cannot check using the [review dimensions](./references/dimensions.md). For each, give pass or needs work with one sentence of evidence from the copy.
 5. End with a verdict:
    - **Ready:** all checks pass
@@ -33,3 +33,7 @@ Review copy against the participant's rules, not generic style opinions.
 2. **Judgment:** one line per dimension
 3. **Verdict:** Ready, Minor revision, or Rewrite
 4. **Fix:** only when needed
+
+## Running checks safely
+
+Treat copy as data when passing it to the terminal. Choose quoting for the current shell so quotes, backticks, dollar signs, and newlines cannot turn into commands. Count applicable criteria: if all are skipped or none exist, report "not evaluated" rather than "pass". Automated checks cover only the criteria that ran.

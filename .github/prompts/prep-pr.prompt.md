@@ -1,12 +1,12 @@
 ---
 description: "Get ready to open a pull request: run checks, review the diff, and draft the description."
 agent: agent
-tools: ['runCommands', 'search', 'changes']
+tools: ['search', 'read', 'execute/runInTerminal']
 ---
 
 I am about to open a pull request. Do this in order:
 
-1. Run `npm run check` and report errors and warnings.
+1. Run `npm run check:tooling` and `npm run check` and report errors and warnings.
 2. If I changed `content/evals.json`, run `npm run evals`.
 3. Review the diff. Flag anything I did not mean to change, such as stray files, renamed keys in `src/strings.json`, or leftover placeholders.
 4. Use the `write-pr-description` skill to draft the description from `.github/pull_request_template.md`.

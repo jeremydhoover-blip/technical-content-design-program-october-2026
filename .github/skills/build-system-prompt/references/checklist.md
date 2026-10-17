@@ -9,7 +9,7 @@
 - [ ] The output format tells the assistant what to return and in what shape
 - [ ] Under 300 words
 - [ ] No placeholders left
-- [ ] Tested: the same request, with and without the file, gives visibly different output
+- [ ] Tested: compare the same request in separate chats with and without product context, record the results, and check them against the rules. Identical output is a valid result to investigate
 
 ## Common problems
 
