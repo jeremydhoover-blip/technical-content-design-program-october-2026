@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UX Content Collective: Technical Content Designer Program</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+
+      <!-- Navigation -->
+      <nav class="nav">
+        <div class="nav-brand">
+          <span class="brand-primary" data-string="program.brand">UX Content Collective</span>
+          <span class="brand-subtitle" data-string="program.subtitle">Technical Content Designer Program</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#" class="nav-link active" data-view="dashboard" data-string="nav.home">Home</a></li>
+          <li><a href="#" class="nav-link" data-view="contentlab" data-string="nav.contentlab">ContentLab</a></li>
+          <li><a href="#" class="nav-link" data-view="playground" data-string="nav.playground">Playground</a></li>
+          <li><a href="#" class="nav-link" data-view="exercises" data-string="nav.exercises">Exercises</a></li>
+          <li><a href="#" class="nav-link" data-view="resources" data-string="nav.resources">Resources</a></li>
+        </ul>
+        <div class="nav-user">
+          <div class="nav-logo-mark"></div>
+        </div>
+      </nav>
+
+      <!-- Main layout -->
+      <div class="layout">
+        <aside class="sidebar" id="sidebar"></aside>
+        <main class="main" id="main"></main>
+      </div>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <span class="footer-copy" data-string="footer.copy">UX Content Collective · Technical Content Designer Program · Cohort 2</span>
+      </footer>
+
+    </div>
+
+    <!-- Toast notifications -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

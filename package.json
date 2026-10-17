@@ -1,0 +1,25 @@
+{
+  "name": "uxcc-technical-content-designer-program",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "doctor": "node scripts/doctor.mjs",
+    "check": "node scripts/check-content.mjs",
+    "check:strict": "node scripts/check-content.mjs --strict",
+    "evals": "node scripts/run-evals.mjs",
+    "prompt": "node scripts/build-prompt.mjs"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  },
+  "dependencies": {
+    "marked": "^18.0.3"
+  }
+}

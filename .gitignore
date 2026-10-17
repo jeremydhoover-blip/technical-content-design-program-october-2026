@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env*
+.DS_Store
+*.local
+
+# Facilitator materials, not for the participant repo
+presentations/
+_lp-copy-v2.txt

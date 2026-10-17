@@ -1,0 +1,61 @@
+{
+  "about": "Evals for your content system. Each criterion is a plain, testable rule. Each sample is a piece of copy to test. Edit this file in Week 4, then run `npm run evals` or open Playground > Eval runner. Mark a deliberately bad sample with \"expect\": \"fail\" so the evals prove they catch it.",
+  "criteria": [
+    {
+      "id": "no-exclamation",
+      "description": "Contains no exclamation points",
+      "type": "mustNotMatch",
+      "pattern": "!"
+    },
+    {
+      "id": "sentence-case",
+      "description": "Uses sentence case, not Title Case",
+      "type": "sentenceCase"
+    },
+    {
+      "id": "no-filler",
+      "description": "Avoids filler and formal words",
+      "type": "bannedWords",
+      "words": ["simply", "just", "easily", "please", "utilize", "leverage", "facilitate"]
+    },
+    {
+      "id": "button-length",
+      "description": "Button label is 1 to 3 words",
+      "type": "maxWords",
+      "value": 3,
+      "appliesTo": ["button"]
+    },
+    {
+      "id": "second-person",
+      "description": "Uses second person (you or your)",
+      "type": "mustMatch",
+      "pattern": "\\b(you|your|you're)\\b",
+      "flags": "i",
+      "appliesTo": ["onboarding", "empty-state"]
+    },
+    {
+      "id": "error-next-step",
+      "description": "Error message tells the user what to do next",
+      "type": "mustMatch",
+      "pattern": "\\b(try|check|enter|use|add|upload|sign in|contact|retry|choose|select)\\b",
+      "flags": "i",
+      "appliesTo": ["error"]
+    },
+    {
+      "id": "no-vague-errors",
+      "description": "Error message is specific, not vague",
+      "type": "mustNotMatch",
+      "pattern": "something went wrong|an error occurred|invalid input|unexpected error",
+      "flags": "i",
+      "appliesTo": ["error"]
+    }
+  ],
+  "samples": [
+    { "id": "button-good", "component": "button", "text": "Save changes" },
+    { "id": "button-bad", "component": "button", "text": "Submit Your Application Now", "expect": "fail" },
+    { "id": "error-good", "component": "error", "text": "We couldn't save your changes. Check your connection and try again." },
+    { "id": "error-bad", "component": "error", "text": "Oops! Something went wrong.", "expect": "fail" },
+    { "id": "empty-good", "component": "empty-state", "text": "No projects yet. Create your first project to get started." },
+    { "id": "onboarding-bad", "component": "onboarding", "text": "Welcome! We're so excited to have you here.", "expect": "fail" }
+  ]
+}
