@@ -22,7 +22,7 @@ Follow these steps before Week 1. If something fails, run `npm run doctor` and r
 2. Click **Fork** in the top-right corner.
 3. Keep the defaults and click **Create fork**.
 
-You now have your own copy at `github.com/YOUR-USERNAME/REPO-NAME`. You work in your fork. Your changes never touch the original.
+You now have your own copy at `github.com/YOUR-USERNAME/technical-content-design-program-october-2026`. You work in your fork. Your changes never touch the original.
 
 ---
 
@@ -41,8 +41,8 @@ On Windows PowerShell, `cd $HOME\Desktop` does the same.
 Clone your fork, replacing the username and repo name:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/REPO-NAME
-cd REPO-NAME
+git clone https://github.com/YOUR-USERNAME/technical-content-design-program-october-2026
+cd technical-content-design-program-october-2026
 ```
 
 Open the folder in VS Code: **File > Open Folder**, then choose the repo folder.

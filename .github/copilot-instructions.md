@@ -2,7 +2,7 @@
 
 ## What this repo is
 
-The working repo for cohort 2 of the **UX Content Collective Technical Content Designer Program**. It is a 4-week program that teaches content designers to work inside a repository.
+The working repo for the October 2026 **UX Content Collective Technical Content Designer Program**. It is a 4-week program that teaches content designers to work inside a repository.
 
 Each participant builds a content system for their own product across the four weeks. The app, **ContentLab**, is a Vite and vanilla JavaScript viewer that renders that system and lets participants test it. A worked example for a fictional product, Luma, is in `content/examples/luma/`.
 

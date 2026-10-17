@@ -15,10 +15,10 @@ Your instructor will share the repo URL at the start of the session. Go to that 
 Open your terminal. Navigate to wherever you keep projects on your machine (your Desktop, a `projects/` folder, or anywhere that makes sense). Then run:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/REPO-NAME
+git clone https://github.com/YOUR-USERNAME/technical-content-design-program-october-2026
 ```
 
-Replace `YOUR-USERNAME` with your GitHub username and `REPO-NAME` with the name of the repo. This downloads your fork to your local machine.
+Replace `YOUR-USERNAME` with your GitHub username and `technical-content-design-program-october-2026` with the name of the repo. This downloads your fork to your local machine.
 
 ### 3. Open the folder in VS Code
 

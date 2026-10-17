@@ -1,6 +1,6 @@
-# Technical Content Designer Program, Cohort 2
+# Technical Content Designer Program, October 2026
 
-The working repo for cohort 2 of the Technical Content Designer Program, run by UX Content Collective. You use it across all four sessions.
+The working repo for the October 2026 Technical Content Designer Program, run by UX Content Collective. You use it across all four sessions.
 
 You build a content system for your own product in this repo. The app, ContentLab, shows it. Copilot skills, prompts, and scripts in the repo help you write it, check it, and test it against AI output.
 
@@ -30,8 +30,8 @@ CONTRIBUTING.md         How to branch, commit, and open PRs
 2. **Clone** your fork:
 
    ```bash
-   git clone https://github.com/YOUR-USERNAME/REPO-NAME
-   cd REPO-NAME
+   git clone https://github.com/YOUR-USERNAME/technical-content-design-program-october-2026
+   cd technical-content-design-program-october-2026
    ```
 
 3. **Install** dependencies. You need Node 20 or later.

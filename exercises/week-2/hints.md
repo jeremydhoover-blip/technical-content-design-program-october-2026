@@ -77,7 +77,7 @@ If you're not sure what's staged, run `git status`. It shows which files have be
 ## How to open a PR on GitHub
 
 1. Push your branch: `git push origin your-name/week-2`
-2. Go to your fork on GitHub (github.com/YOUR-USERNAME/REPO-NAME)
+2. Go to your fork on GitHub (github.com/YOUR-USERNAME/technical-content-design-program-october-2026)
 3. Click the yellow **"Compare & pull request"** banner, or go to the **Pull requests** tab and click **New pull request**
 4. Set the **base repository** to your fork. GitHub defaults to the original repo. Then set **base** to `main` and **compare** to your branch.
 5. Fill in the PR template, then click **Create pull request**

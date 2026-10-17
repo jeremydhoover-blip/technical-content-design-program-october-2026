@@ -22,7 +22,7 @@ Use the email tied to your GitHub account.
 ## Push fails: authentication or "Permission denied"
 - HTTPS remotes need a sign-in. The simplest path is to sign in to GitHub from VS Code (Accounts menu, bottom left), then retry the push.
 - Alternatively install GitHub CLI and run `gh auth login`.
-- "Permission denied (publickey)" means the remote is an SSH address. Switch to HTTPS: `git remote set-url origin https://github.com/YOUR-USERNAME/REPO-NAME`
+- "Permission denied (publickey)" means the remote is an SSH address. Switch to HTTPS: `git remote set-url origin https://github.com/YOUR-USERNAME/technical-content-design-program-october-2026`
 
 ## Port 5173 already in use
 Vite picks the next port (5174) and prints it. Open the address it shows. To free the port:
@@ -40,7 +40,7 @@ Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 Lines starting with `WARN` are normal. Only lines starting with `ERR!` or `error` need action. Read the last error line first.
 
 ## Not a git repository
-The folder was probably downloaded as a ZIP. Clone the fork instead: `git clone https://github.com/YOUR-USERNAME/REPO-NAME`
+The folder was probably downloaded as a ZIP. Clone the fork instead: `git clone https://github.com/YOUR-USERNAME/technical-content-design-program-october-2026`
 
 ## Changes do not show in the browser
 Check that `npm run dev` is still running in its terminal. Save the file again, then refresh the page.
