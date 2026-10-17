@@ -14,7 +14,8 @@
     "check": "node scripts/check-content.mjs",
     "check:strict": "node scripts/check-content.mjs --strict",
     "evals": "node scripts/run-evals.mjs",
-    "prompt": "node scripts/build-prompt.mjs"
+    "prompt": "node scripts/build-prompt.mjs",
+    "check:tooling": "node scripts/check-tooling.mjs"
   },
   "devDependencies": {
     "vite": "^5.4.10"

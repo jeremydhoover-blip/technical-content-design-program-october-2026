@@ -53,3 +53,7 @@ For each string:
 4. **Evals:** pass or the failing criterion
 
 Offer one alternative only when the brief allows two valid directions.
+
+## Running checks safely
+
+Treat copy as data when passing it to the terminal. Choose quoting for the current shell so quotes, backticks, dollar signs, and newlines cannot turn into commands. Count applicable criteria: if all are skipped or none exist, report "not evaluated" rather than "pass". Automated checks cover only the criteria that ran.

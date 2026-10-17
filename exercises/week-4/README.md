@@ -44,7 +44,7 @@ CI/CD stands for Continuous Integration / Continuous Deployment. It's the automa
 
 Where content fits: in some organizations, content changes go through the same CI/CD pipeline as code. A PR that updates a UI string triggers a build, automated checks run, and if everything passes, the change deploys.
 
-You've already seen this. Open `.github/workflows/content-check.yml`. On every pull request it runs `npm run check`, `npm run evals`, and `npm run build`. Your evals are now part of CI. If a criterion fails on one of your samples, the PR shows a red X.
+You've already seen this. Open `.github/workflows/content-check.yml`. On every pull request it runs `npm run check:tooling`, `npm run check`, `npm run evals`, and `npm run build`. Your evals are now part of CI. If a criterion fails on one of your samples, the PR shows a red X.
 
 On a fork, GitHub may ask you to enable Actions the first time. Click **Enable workflows** on the Actions tab.
 
@@ -74,11 +74,7 @@ In `content/evals.json`, replace the example criteria with ones for your product
 
 ## After this session
 
-Write a one-paragraph reflection in your fork's `README.md`, in the section at the bottom.
-
-Describe what you built, what you learned, and one thing you'd do next if you kept working on this system. Keep it honest. This isn't a marketing pitch for your own work.
-
-Then run the strict check, which also fails on leftover placeholders:
+Run the strict check, which also fails on leftover placeholders:
 
 ```bash
 npm run check:strict
@@ -86,4 +82,4 @@ npm run check:strict
 
 Fix what it finds. Use `/prep-pr` for the final PR. Commit, push, open the PR on your fork, wait for the checks to pass, and merge.
 
-**Done when:** `npm run check:strict` shows no errors, `npm run evals` passes, your reflection is in `README.md`, and your final PR is merged with green checks.
+**Done when:** `npm run check:strict` shows no errors, `npm run evals` passes, and your final PR is merged with green checks.

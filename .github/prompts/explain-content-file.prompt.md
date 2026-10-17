@@ -1,13 +1,14 @@
 ---
 description: "Explain what a content system file is for and what is still missing in it."
 agent: ask
+tools: ['search', 'read']
 ---
 
 Explain this content system file to a content designer who is new to repos but experienced in their craft.
 
 File: `${input:filename:For example voice-and-tone.md}`
 
-Read `content/foundations/${input:filename}` and the matching file in `content/examples/luma/`. Cover:
+Use the filename provided above to read the matching file in `content/foundations/` and `content/examples/luma/`. Choose only one of the five foundations filenames listed in `docs/REPOSITORY-MAP.md`. Cover:
 
 1. **Purpose.** One sentence on what the file is for.
 2. **What belongs in it.** The sections and what each should contain.

@@ -23,8 +23,8 @@ Coach the participant through writing `content/instructions.md`. The participant
 5. Draft text for a section only if the participant asks for a draft. Label it "Draft for you to revise".
 6. Once `content/instructions.md` is done, explain the two ways to apply it:
    - In chat: attach it and the foundations files as context
-   - Always on: add one line to `.github/copilot-instructions.md` pointing at `content/instructions.md`. See `docs/AI-TOOLING.md`.
-7. Suggest the with-and-without test: ask for the same string with and without the instructions, and compare.
+   - Repo instruction: add one line to `.github/copilot-instructions.md` pointing at `content/instructions.md`. See `docs/AI-TOOLING.md`.
+7. Compare the same request in separate chats, with and without the product files and product-specific instructions. A generic and guided answer in one chat is an illustration, not an independent baseline. Check which files were actually referenced.
 
 ## Rules
 

@@ -22,8 +22,10 @@ In JSON, a backslash is written twice: `\\b`.
 Good for length limits.
 
 ```json
-{ "id": "button-length", "description": "Button label is 1 to 3 words", "type": "maxWords", "value": 3, "appliesTo": ["button"] }
+{ "id": "button-length", "description": "Button label is at most 3 words", "type": "maxWords", "value": 3, "appliesTo": ["button"] }
 ```
+
+Use a separate `minWords` criterion with `"value": 1` to enforce a lower bound. `maxWords` alone does not reject an empty string.
 
 ## maxChars
 Good for toasts and titles.

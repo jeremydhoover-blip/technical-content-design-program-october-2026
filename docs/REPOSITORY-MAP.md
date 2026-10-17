@@ -1,6 +1,6 @@
 # Repository Map
 
-Every folder and file in the repo, what it is, and whether it is yours to edit.
+A guide to the tracked files and folders in the participant repo, what they do, and whether they are yours to edit. Local instructor materials in `presentations/` and generated folders such as `node_modules/` and `dist/` are ignored by Git and are not part of a fork.
 
 ---
 
@@ -57,6 +57,8 @@ Command-line tools. Run them with `npm run`.
 | `check-content.mjs` | `npm run check` | Validates content files and `src/strings.json` |
 | `run-evals.mjs` | `npm run evals` | Runs `content/evals.json` |
 | `build-prompt.mjs` | `npm run prompt` | Prints the assembled AI context and its token size |
+| `check-tooling.mjs` | `npm run check:tooling` | Checks AI tooling metadata, links, commands, and documented inventories |
+| `_util.mjs` | Used by the scripts | Shared file and terminal helpers |
 
 ---
 
@@ -88,8 +90,21 @@ The app. You edit `strings.json` only.
 |------|------------|---------------------|
 | `strings.json` | All UI text for the app, grouped by view | Edit values to change app copy. Never rename keys |
 | `main.js` | Navigation, rendering, Playground | Read it to see how content reaches the screen. Do not edit |
-| `lib/` | Shared logic for the app and the scripts | Do not edit |
+| `lib/content-lib.js` | Content structure, placeholders, and prompt assembly | Do not edit |
+| `lib/evals.js` | Shared eval criterion and sample runner | Do not edit |
 | `styles.css` | All CSS | Do not edit |
+
+---
+
+## `public/`
+
+Static app assets: `favicon.svg` and `background-home.png`.
+
+---
+
+## `.vscode/`
+
+Recommended editor extensions and workspace settings in `extensions.json` and `settings.json`.
 
 ---
 
@@ -99,12 +114,12 @@ Tooling for GitHub and Copilot. See [AI-TOOLING.md](AI-TOOLING.md).
 
 | Path | What it is |
 |------|------------|
-| `copilot-instructions.md` | Always-on instructions for Copilot in this repo |
+| `copilot-instructions.md` | Repo instructions for supported Copilot sessions |
 | `instructions/` | Rules that apply to certain files |
 | `skills/` | Repeatable procedures, such as `copy-review` and `write-evals` |
 | `prompts/` | Saved requests you run with `/` |
-| `agents/` | Chat modes: `coach` and `content-reviewer` |
-| `workflows/content-check.yml` | CI. Runs `npm run check`, `npm run evals`, and `npm run build` on every pull request |
+| `agents/` | Custom agents: `coach` and `content-reviewer` |
+| `workflows/content-check.yml` | CI. Runs `npm run check:tooling`, `npm run check`, `npm run evals`, and `npm run build` on pull requests and pushes to `main` |
 | `pull_request_template.md` | The sections every PR description fills in |
 
 ---
@@ -113,7 +128,7 @@ Tooling for GitHub and Copilot. See [AI-TOOLING.md](AI-TOOLING.md).
 
 | File | What it is | What you do with it |
 |------|------------|---------------------|
-| `README.md` | The repo introduction | Add your reflection in Week 4 |
+| `README.md` | The repo introduction | Read for an overview and setup steps |
 | `CONTRIBUTING.md` | Branching, commits, and PRs | Read before your first PR |
 | `AGENTS.md` | Rules for AI agents working in the repo | Read once |
 | `index.html` | The HTML shell | Do not edit |
@@ -121,3 +136,7 @@ Tooling for GitHub and Copilot. See [AI-TOOLING.md](AI-TOOLING.md).
 | `vite.config.js` | Build configuration | Do not edit |
 | `.nvmrc` | Node version for tools like nvm | Do not edit |
 | `.gitignore` | Files Git ignores | Do not edit |
+| `.gitattributes` | Git file handling rules | Do not edit |
+| `.editorconfig` | Shared editor formatting settings | Do not edit |
+| `package-lock.json` | Locked dependency versions | Updated by npm |
+| `LICENSE` | Repository license | Read for usage terms |

@@ -30,14 +30,14 @@ Vite picks the next port (5174) and prints it. Open the address it shows. To fre
 - Windows PowerShell: `Get-NetTCPConnection -LocalPort 5173` then `Stop-Process -Id PID`
 
 ## Windows: "running scripts is disabled"
-PowerShell blocks npm scripts. Run this once, then reopen the terminal:
+If PowerShell blocks `npm.ps1`, try `npm.cmd install` or `npm.cmd run dev` first. This does not change execution policy. If you choose to allow local scripts for your Windows account, this command changes that account's execution policy:
 
 ```powershell
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 ```
 
 ## npm install shows lots of warnings
-Lines starting with `WARN` are normal. Only lines starting with `ERR!` or `error` need action. Read the last error line first.
+Warnings do not always stop installation, but read them. Engine, deprecated-package, and security warnings can need action. Use the command exit status and error details to identify a failed install; do not dismiss every warning.
 
 ## Not a git repository
 The folder was probably downloaded as a ZIP. Clone the fork instead: `git clone https://github.com/YOUR-USERNAME/technical-content-design-program-october-2026`

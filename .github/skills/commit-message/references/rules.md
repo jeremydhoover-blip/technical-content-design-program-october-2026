@@ -6,7 +6,7 @@ A commit message completes the sentence: "If applied, this commit will ___."
 - Specific: name what changed and where
 - First line under 72 characters
 - No period at the end
-- No vague words: "update", "changes", "stuff", "wip", "fix it"
+- Avoid vague messages such as "updated stuff", "changes", "wip", or "fix it". "Update" is fine when followed by a specific change
 
 ## Good
 

@@ -86,7 +86,7 @@ A saved request in `.github/prompts/` that you run in Copilot Chat by typing `/`
 A chat mode defined in `.github/agents/` with a role and limited tools. In this repo, `coach` guides you and `content-reviewer` reviews without editing.
 
 **Instructions file**  
-A file Copilot reads as standing rules. `.github/copilot-instructions.md` applies to every request in the repo. Files in `.github/instructions/` apply only to the paths they name.
+A file Copilot reads as standing rules. Supported Copilot clients use `.github/copilot-instructions.md` as repo context when enabled. Files in `.github/instructions/` can apply to matching paths. Check the chat references to confirm which instructions were used.
 
 **Script**  
 A small program you run from the terminal. In this repo, `npm run check` and `npm run evals` are scripts in `scripts/`.

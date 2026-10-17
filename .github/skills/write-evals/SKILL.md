@@ -14,7 +14,7 @@ Help the participant turn their content system into checks that anyone can apply
 2. Ask the participant to pick 3 rules they care about. Each anti-pattern is a candidate.
 3. For each, help write one criterion using the [criterion types](./references/criterion-types.md). Check it against the quality bar below.
 4. Add 2 samples per criterion: one that should pass, and one marked `"expect": "fail"` that proves the criterion catches the problem.
-5. Run `npm run evals`. A sample marked `expect: fail` that passes every criterion means the criteria are too weak. Fix the criteria, not the sample.
+5. Run `npm run check` and `npm run evals`. A sample marked `expect: fail` that passes every criterion means the criteria are too weak. Fix the criteria, not the sample.
 6. To test one string quickly: `npm run evals -- --text "Save your work" --component button`.
 7. Suggest pasting real AI output into the Eval runner in the app, with and without their instructions.
 

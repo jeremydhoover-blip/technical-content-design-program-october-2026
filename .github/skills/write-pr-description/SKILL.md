@@ -10,7 +10,7 @@ Draft a PR description the participant can edit and paste. The participant owns 
 
 ## Procedure
 
-1. Run `git status` and `git diff main...HEAD` (or `git diff` if nothing is committed yet) to see the change. Confirm the branch is not `main`.
+1. Run `git status`, `git diff main...HEAD`, `git diff`, and `git diff --staged` to review committed, unstaged, and staged changes. Inspect relevant untracked files listed by status too. If `main` is unavailable, identify the actual base branch first. Confirm the participant is on a working branch before preparing commit or push steps.
 2. Run `npm run check`. Include any remaining warnings in the description honestly. Do not hide them.
 3. Read `.github/pull_request_template.md` and use its sections and order.
 4. Fill each section from the diff. If a section needs intent that the diff cannot show (why a decision was made), ask the participant one question instead of guessing.
