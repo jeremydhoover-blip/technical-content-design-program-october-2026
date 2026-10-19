@@ -25,6 +25,23 @@ CONTRIBUTING.md         How to branch, commit, and open PRs
 
 ---
 
+## How you work
+
+We recommend VS Code with GitHub Copilot from Week 1 and use it for the demonstrations. You can use another coding assistant if you prefer. Check that it can read your repo files and follow the same tasks.
+
+Use VS Code, Codex, Claude, or another coding environment to edit the repo and work with your AI assistant. The app runs alongside it.
+
+- Follow the weekly task in Exercises.
+- Edit your content files in your coding environment. Review them in ContentLab when you save.
+- Ask your assistant to read the relevant files and write or revise copy. Check which files it used.
+- Save copy you want to test as samples in `content/evals.json`. Ask your assistant to help, then review the changes.
+- Run `npm run evals` in your terminal or inspect your criteria and test cases in Evaluations. Saving the file updates the app.
+- The optional context demonstration in Exercises > Week 3 shows assembled text and its size. Your assistant can read the files directly.
+
+The learning app needs no model connection, API key, or local AI installation. Use your existing coding assistant. Copilot-specific prompts and agents are optional; when your tool does not load them, ask for the same task directly and point it to the relevant repo files.
+
+---
+
 ## Get started
 
 1. **Fork** this repo. Click Fork on GitHub.
@@ -75,15 +92,15 @@ Full instructions are in [docs/SETUP.md](docs/SETUP.md).
 
 - **Home:** where to start
 - **ContentLab:** your five files and the Luma example, rendered. Shows how many files are complete
-- **Playground:** build the AI prompt from your files and run your evals on any copy
+- **Evaluations:** view your eval criteria and inspect test cases and results
 - **Exercises:** the weekly task cards
 - **Resources:** setup, AI tooling, key terms, and checklists
 
 ---
 
-## Work with Copilot
+## Work with your coding assistant
 
-The repo includes skills, prompts, and agents that know how the program works. Try these in Copilot Chat:
+Use the assistant in your chosen coding environment. Ask it to read `AGENTS.md` and the files relevant to your task. The repo also includes optional Copilot skills, prompts, and agents. In a supported Copilot session, try:
 
 - "Use the content-audit skill on my content system"
 - `/review-copy` on a selected string

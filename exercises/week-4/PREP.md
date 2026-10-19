@@ -15,16 +15,18 @@ Make any final additions or improvements before the session. You're going to pre
 
 ---
 
-## Read your README.md
+## Prepare your walkthrough
 
-Open the root `README.md`. Does it describe what's in the repo? You'll update it after the session, but reading it now will tell you what's already there and what's missing.
+Plan a five-minute walkthrough of your fork. Open ContentLab and choose one content decision to explain.
+
+Bring both responses from your Week 3 comparison. Show which files each chat used and explain what you learned, even if the responses match. Name one gap in your system and what you would improve next. Open Evaluations and locate the criteria in `content/evals.json`. You will replace the starter criteria during the Week 4 exercise; you do not need to finish that task before the session.
 
 ---
 
 ## What to have ready
 
-- All five `content/foundations/` files filled in (no remaining `[Your product name]` placeholders unless you've intentionally left them)
+- All five `content/foundations/` files complete, with no unfinished placeholders
 - `content/instructions.md` filled in (from the Week 3 after-session task)
 - All changes committed, pushed, and merged on your fork
 - You can run the app locally and show your content system in ContentLab
-- You know your `npm run check` result. Fix errors before the session.
+- You have run `npm run check:strict` and fixed its errors, including unfinished placeholders, before the session.

@@ -66,11 +66,17 @@ You won't need to write YAML from scratch in this program, but you'll read it in
 
 The three steps to save and share your changes:
 
-1. **`git add filename`**: stage the specific file you changed (or `git add .` to stage everything)
+1. **`git add filename`**: stage the specific file you changed (review each file before staging it)
 2. **`git commit -m "Your message here"`**: save a snapshot with a description
 3. **`git push origin branch-name`**: send your branch to GitHub
 
-If you're not sure what's staged, run `git status`. It shows which files have been modified, staged, and committed.
+If you're not sure what's staged, run `git status`. It shows your branch, staged and unstaged changes, and untracked files. Use `git log` to see commits.
+
+---
+
+## Carrying your Week 1 draft into Week 2
+
+Run `git branch` and `git status`. Create `your-name/week-2` from your Week 1 branch with `git checkout -b your-name/week-2`. Your saved, uncommitted edits stay in the working folder. If that branch already exists, switch to it with `git checkout your-name/week-2`. Use that same branch name when you push.
 
 ---
 
@@ -85,4 +91,4 @@ If you're not sure what's staged, run `git status`. It shows which files have be
 
 If the checks fail, click **Details** and read the message. The most common cause is `npm run check` finding an error in `src/strings.json` or a content file. Fix it locally, commit, and push again. The PR updates by itself.
 
-Your PR title should complete the sentence: "This PR ___." Example: "Add persona 1 for Luma."
+Your PR title should complete the sentence: "If applied, this PR will ___." Use an imperative verb and no final period. Example: `Add persona 1 for your product`.

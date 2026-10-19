@@ -6,6 +6,8 @@ You have a content system. This week you're going to use it.
 
 ## In session
 
+Use your chosen coding environment for edits and AI work. The app displays the files you save. Copilot commands in this card are optional examples; if your assistant does not support them, give it the same task and the relevant files directly.
+
 ### 1. Context windows and tokens
 
 Language models have a limited amount of text they can read and process at one time. That limit is measured in **tokens**: roughly three to four characters per token, or about 75% of a word.
@@ -18,17 +20,19 @@ See the size of your own context. Run:
 npm run prompt
 ```
 
-It prints everything an AI would receive from your files and ends with an estimate of the token count. You can also open **Playground > Prompt builder** in the app, switch files on and off, and watch the size change.
+It assembles your instructions and foundations files and prints an estimated token count. This is a context demonstration, not a required prompt to copy into your assistant. You can also open the optional context demonstration in **Exercises > Week 3** in the app, switch files on and off, and watch the size change.
 
 ### 2. Writing instructions that work
 
 There's a difference between asking an AI assistant to "write a button label" and giving it a system prompt that includes your voice attributes, your persona, and your component patterns for buttons.
 
-In session, you'll write two versions of the same instruction:
-- One with no context
-- One with your `content/foundations/` files as context
+In session, you'll compare responses to the same request:
+- A response without your product files or instructions
+- A response with your `content/foundations/` files as context
 
-Compare the output. The point is not that AI is magic. The point is that **structure you've built changes what's possible.**
+Use a separate chat for each response and check which files and instructions the assistant used. A new chat inside your repo can still include your product files. If both chats include those files, say so when you discuss the results.
+
+Check both responses against your written rules. Note what changed, what stayed the same, and which rules the assistant missed. If the responses match, explain what you found.
 
 ### 3. What "agentic" means
 
@@ -40,7 +44,9 @@ For content designers, this matters because: the systems being built around thes
 
 ### 4. Giving the AI your files as context
 
-There are three ways to get your content system in front of Copilot. Your instructor demos each.
+Your coding assistant can read the content files directly. Point it to `content/instructions.md` and the relevant foundations files, then check which files it read. Your instructor demos this in a coding environment.
+
+Copilot offers these options when supported by your client:
 
 1. **Attach files.** In Copilot Chat, type `#file` and pick `content/instructions.md` and your foundations files. This works for one conversation.
 2. **Add an instructions file.** `.github/copilot-instructions.md` provides repo instructions in supported Copilot sessions when enabled. Add a line asking Copilot to read your product files when writing copy, then check the response references to confirm which files it used.
@@ -59,13 +65,22 @@ Watch what happens when an AI assistant is asked to write onboarding copy for yo
 2. With `voice-and-tone.md` included
 3. With `voice-and-tone.md` + `personas.md` included
 
+Use a separate chat for each version and check which files the assistant used. If you use one chat for all three, explain that later responses can draw on the files and messages you shared earlier.
+
 Discuss: what changed? What didn't? What would you add to your files based on what you saw?
 
 ---
 
 ## After this session (before Week 4)
 
-Write the system instructions for your product in `content/instructions.md`. The file is a template. Replace each `[placeholder]` with your own content.
+First, finish your two remaining foundations files:
+
+- `content/foundations/component-patterns.md`: define rules and good and bad examples for each component section. Include measurable limits where they help.
+- `content/foundations/accessibility.md`: review the starter rules, adapt them to your product, and complete the missing standards and examples.
+
+Replace all unfinished placeholders and keep the template headings. If a component does not apply to your product, explain why in that section instead of leaving placeholder text. Check that these rules agree with your voice, personas, and grammar and style files.
+
+Then write the system instructions for your product in `content/instructions.md`. The file is a template. Replace each `[placeholder]` with your own content.
 
 It describes what the product is, who the users are, what the voice is like, and the rules the AI follows when writing copy. Keep it under about 300 words. It points to your foundations files for detail. Think of it as a system prompt you'd give a writing assistant.
 
@@ -73,12 +88,13 @@ The `build-system-prompt` skill coaches you through it. It reviews what you writ
 
 Then test it:
 
-1. Run `/test-copy` in Copilot Chat. Pick a request, such as an error message for a failed upload. It writes the copy with and without your content system and runs your evals on both.
-2. Add one line to `.github/copilot-instructions.md` at the bottom, such as: "When writing copy for [your product], follow `content/instructions.md` and the files in `content/foundations/`." Ask Copilot for a button label and see whether it uses your rules.
-3. Run `npm run prompt` and note the token count.
+1. Pick one request, such as an error message for a failed upload. Ask for it in a separate chat without your product files or instructions. Save the response and note which files the assistant used.
+2. Run `/test-copy` in Copilot Chat and provide that response for comparison. If the command is unavailable, ask your coding assistant to answer the same request using your product files, then compare the two responses. Ask your assistant to save the two responses as samples in `content/evals.json`, with clear IDs and the correct component. Review the file changes, then run `npm run evals` or expand Test cases and results in Evaluations. Check the copy against your written rules too. The starter evals cover only their example criteria.
+3. Tell your assistant to read `content/instructions.md` and the relevant foundations files when writing copy. Check which files it uses. If you use Copilot, you can add a line to `.github/copilot-instructions.md`, such as: "When writing copy for [your product], follow `content/instructions.md` and the files in `content/foundations/`." Ask your coding assistant for a button label, inspect its file references, and check the result against your rules.
+4. Run `npm run prompt` and note the token count.
 
-Commit your changes on a branch, open a PR on your fork, and merge it, the same way as Week 2.
+Run `npm run check:strict` to find any remaining placeholders in your five foundations files and instructions. Fix the errors, then commit your changes on a branch, open a PR on your fork, and merge it as you did in Week 2.
 
-Come to Week 4 ready to show what changed with and without your instructions.
+Come to Week 4 ready to show both responses, name the files each chat used, and explain how well the copy follows your rules.
 
-**Done when:** `content/instructions.md` has no placeholders, `npm run check` shows no errors for it, and you have seen Copilot produce different copy with your instructions than without them.
+**Done when:** all five foundations files and `content/instructions.md` are complete, `npm run check:strict` shows no errors, your PR is merged, and you can explain the comparison against your rules. The outputs do not have to differ.

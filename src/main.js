@@ -68,7 +68,6 @@ let currentContentFile = 'voice-and-tone';
 let currentContentSource = 'yours'; // 'yours' or 'example'
 let currentDoc = 'week-1';
 let currentExerciseTab = 'task';
-let currentPlayground = 'prompt'; // 'prompt' or 'evals'
 
 const promptState = {
   source: 'yours',
@@ -205,25 +204,7 @@ function renderSidebar(topView) {
     return;
   }
 
-  if (topView === 'playground') {
-    const items = [
-      ['prompt', strings.playground.promptBuilderLabel],
-      ['evals', strings.playground.evalRunnerLabel],
-    ];
-    sidebar.innerHTML = `
-      <div class="sidebar-section">
-        <p class="sidebar-label">${strings.playground.sidebarLabel}</p>
-        <ul class="sidebar-list">
-          ${items.map(([key, label]) =>
-            `<li class="sidebar-item ${currentPlayground === key ? 'active' : ''}" data-tool="${key}">${label}</li>`
-          ).join('')}
-        </ul>
-      </div>`;
-    sidebar.querySelectorAll('[data-tool]').forEach(el =>
-      el.addEventListener('click', () => { currentPlayground = el.dataset.tool; navigate('playground'); })
-    );
-    return;
-  }
+  if (topView === 'playground') { sidebar.style.display = 'none'; return; }
 
   if (topView === 'exercises') {
     sidebar.innerHTML = `
@@ -264,8 +245,8 @@ function renderMain(view) {
   if (view === 'dashboard') { main.innerHTML = renderDashboard(); bindDashboard(); return; }
   if (view === 'contentlab') { main.innerHTML = renderContentLab(); return; }
   if (view === 'playground') {
-    main.innerHTML = currentPlayground === 'prompt' ? renderPromptBuilder() : renderEvalRunner();
-    if (currentPlayground === 'prompt') bindPromptBuilder(); else bindEvalRunner();
+    main.innerHTML = renderEvalRunner();
+    bindEvalRunner();
     return;
   }
   if (view === 'exercises')  { main.innerHTML = renderExercise(); bindExerciseTabs(); return; }
@@ -408,12 +389,14 @@ function renderPromptBuilder() {
 function bindPromptBuilder() {
   document.getElementById('prompt-source')?.addEventListener('change', e => {
     promptState.source = e.target.value;
-    renderMain('playground');
+    renderMain('exercises');
+    document.querySelector('.context-demo')?.setAttribute('open', '');
   });
   document.querySelectorAll('[data-include]').forEach(el =>
     el.addEventListener('change', () => {
       if (el.checked) promptState.include.add(el.dataset.include); else promptState.include.delete(el.dataset.include);
-      renderMain('playground');
+      renderMain('exercises');
+      document.querySelector('.context-demo')?.setAttribute('open', '');
     })
   );
   document.getElementById('copy-prompt')?.addEventListener('click', async () => {
@@ -446,6 +429,33 @@ function renderEvalRows(results) {
     .join('');
 }
 
+function renderCriterionCard(criterion) {
+  const descriptions = {
+    mustMatch: strings.playground.mustMatchHelp,
+    mustNotMatch: strings.playground.mustNotMatchHelp,
+    maxWords: strings.playground.maxWordsHelp,
+    minWords: strings.playground.minWordsHelp,
+    maxChars: strings.playground.maxCharsHelp,
+    bannedWords: strings.playground.bannedWordsHelp,
+    sentenceCase: strings.playground.sentenceCaseHelp,
+  };
+  const explanation = (descriptions[criterion.type] || strings.playground.unknownRuleHelp)
+    .replace('{value}', String(criterion.value ?? ''));
+  const components = criterion.appliesTo?.length
+    ? criterion.appliesTo.map(component => component.replace(/-/g, ' ').replace(/^./, letter => letter.toUpperCase())).join(', ')
+    : strings.playground.allComponents;
+  const list = (label, values) => values?.length
+    ? `<p><strong>${escapeHtml(label)}:</strong> ${values.map(value => `<span class="criterion-term">${escapeHtml(value)}</span>`).join(' ')}</p>` : '';
+  return `<article class="criterion-card">
+    <h3>${escapeHtml(criterion.description)}</h3>
+    <p>${escapeHtml(explanation)}</p>
+    ${criterion.type === 'bannedWords' ? list(strings.playground.avoidedWordsLabel, criterion.words) : ''}
+    ${criterion.type === 'sentenceCase' ? list(strings.playground.allowedNamesLabel, criterion.allow) : ''}
+    <p class="criterion-scope"><strong>${strings.playground.appliesLabel}</strong> ${escapeHtml(components)}</p>
+    <details class="criterion-technical"><summary>${strings.playground.technicalDetailsLabel}</summary><pre>${escapeHtml(JSON.stringify(criterion, null, 2))}</pre></details>
+  </article>`;
+}
+
 function renderEvalRunner() {
   const criteria = evalsConfig.criteria || [];
   const components = evalComponents();
@@ -456,10 +466,10 @@ function renderEvalRunner() {
   } else if (evalState.result) {
     const run = evalState.result.filter(r => !r.skipped);
     const passed = run.filter(r => r.pass).length;
-    const all = passed === run.length;
+    const all = run.length > 0 && passed === run.length;
     resultHtml = `
       <h2>${strings.playground.resultsHeading}</h2>
-      <p class="eval-result-summary ${all ? 'all-pass' : 'partial-pass'}">${all ? strings.playground.allPass : `${passed} of ${run.length} ${strings.playground.criteriaPass}`}</p>
+      <p class="eval-result-summary ${all ? 'all-pass' : 'partial-pass'}">${!run.length ? strings.playground.noApplicableCriteria : all ? strings.playground.allPass : `${passed} of ${run.length} ${strings.playground.criteriaPass}`}</p>
       <div class="eval-assertion-rows">${renderEvalRows(evalState.result)}</div>`;
   }
 
@@ -467,11 +477,12 @@ function renderEvalRunner() {
   const samplesHtml = sampleRuns.map(run => `
     <details class="sample-run">
       <summary>
-        <span class="assertion-badge assertion-badge--${run.ok ? 'pass' : 'fail'}">${run.ok ? strings.playground.sampleOk : strings.playground.sampleMiss}</span>
+        <span class="assertion-badge assertion-badge--${run.ok ? 'pass' : 'fail'}">${!run.total ? strings.playground.notEvaluated : run.ok ? strings.playground.sampleOk : strings.playground.sampleMiss}</span>
         <span class="sample-text">${escapeHtml(run.sample.text)}</span>
         <span class="sample-meta">${escapeHtml(run.sample.component)}${run.sample.expect === 'fail' ? ` · ${strings.playground.sampleExpectFail}` : ''} · ${run.passed}/${run.total}</span>
       </summary>
-      <div class="eval-assertion-rows">${renderEvalRows(run.results)}</div>
+      <p class="sample-expectation">${run.sample.expect === 'fail' ? strings.playground.expectedFailHelp : strings.playground.expectedPassHelp}</p>
+      ${run.total ? `<div class="eval-assertion-rows">${renderEvalRows(run.results)}</div>` : `<p>${strings.playground.noApplicableCriteria}</p>`}
     </details>`).join('');
 
   return `
@@ -479,11 +490,12 @@ function renderEvalRunner() {
       <h1>${strings.playground.evalHeading}</h1>
       <p>${strings.playground.evalDescription}</p>
       ${criteria.length ? '' : `<p class="field-error">${strings.playground.noCriteria}</p>`}
+      <h2>${strings.playground.quickCheckHeading}</h2>
       <div class="playground-controls">
         <div class="field">
           <label class="field-label" for="eval-component">${strings.playground.componentLabel}</label>
           <select id="eval-component" class="setting-select">
-            ${components.map(c => `<option value="${escapeHtml(c)}" ${evalState.component === c ? 'selected' : ''}>${escapeHtml(c)}</option>`).join('')}
+            ${components.map(c => `<option value="${escapeHtml(c)}" ${evalState.component === c ? 'selected' : ''}>${escapeHtml(c.replace(/-/g, ' ').replace(/^./, letter => letter.toUpperCase()))}</option>`).join('')}
           </select>
         </div>
         <div class="field field-wide">
@@ -493,9 +505,16 @@ function renderEvalRunner() {
         <div><button class="btn-primary" id="run-evals">${strings.playground.runAction}</button></div>
       </div>
       <div class="eval-output">${resultHtml}</div>
-      <h2>${strings.playground.samplesHeading}</h2>
-      <p>${strings.playground.samplesDescription}</p>
-      ${samplesHtml}
+      <p>${strings.playground.reviewHelp}</p>
+      <h2>${strings.playground.rulesHeading}</h2>
+      <p>${strings.playground.rulesDescription}</p>
+      <div class="evaluation-rules-list">${criteria.map(renderCriterionCard).join('')}</div>
+      <details class="evaluation-rules">
+        <summary>${strings.playground.samplesHeading}</summary>
+        <p>${strings.playground.samplesDescription}</p>
+        ${samplesHtml || `<p>${strings.playground.noSamples}</p>`}
+      </details>
+
     </div>`;
 }
 
@@ -534,12 +553,14 @@ function renderExercise() {
         ${tabs.map(t => `<button class="exercise-tab ${currentExerciseTab === t.key ? 'active' : ''}" data-tab="${t.key}">${t.label}</button>`).join('')}
       </div>
       ${renderDoc(content)}
+      ${currentDoc === 'week-3' && currentExerciseTab === 'task' ? `<details class="context-demo"><summary>${strings.playground.contextDemoLabel}</summary>${renderPromptBuilder()}</details>` : ''}
     </div>`;
 }
 
 function bindExerciseTabs() {
+  if (currentDoc === 'week-3' && currentExerciseTab === 'task') bindPromptBuilder();
   document.querySelectorAll('.exercise-tab').forEach(el =>
-    el.addEventListener('click', () => { currentExerciseTab = el.dataset.tab; renderMain('exercises'); bindExerciseTabs(); })
+    el.addEventListener('click', () => { currentExerciseTab = el.dataset.tab; renderMain('exercises'); })
   );
 }
 

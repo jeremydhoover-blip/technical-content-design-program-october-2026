@@ -9,3 +9,6 @@ By the end of this session you will be able to:
 - Run a local development environment (`npm install`, `npm run dev`) and explain what each step does
 - Create a branch and articulate why branching matters for collaborative work
 - Define what a content system file is and describe its purpose in a product
+- Explain what you edit in your coding environment and what you view in ContentLab and Evaluations
+
+- Set up GitHub Copilot in VS Code, or your preferred coding assistant, and verify its explanation against a repo file

@@ -26,7 +26,7 @@ Your system prompt for your product. Written in Week 3. It points an AI at your 
 
 ### `content/evals.json`
 
-Your eval criteria and samples. Edited in Week 4. Run with `npm run evals` or in Playground > Eval runner.
+Your eval criteria and samples. Edited in Week 4. Run with `npm run evals` or in Evaluations.
 
 ### `content/examples/luma/`
 
@@ -89,7 +89,7 @@ The app. You edit `strings.json` only.
 | File | What it is | What you do with it |
 |------|------------|---------------------|
 | `strings.json` | All UI text for the app, grouped by view | Edit values to change app copy. Never rename keys |
-| `main.js` | Navigation, rendering, Playground | Read it to see how content reaches the screen. Do not edit |
+| `main.js` | Navigation, rendering, Evaluations | Read it to see how content reaches the screen. Do not edit |
 | `lib/content-lib.js` | Content structure, placeholders, and prompt assembly | Do not edit |
 | `lib/evals.js` | Shared eval criterion and sample runner | Do not edit |
 | `styles.css` | All CSS | Do not edit |
@@ -98,7 +98,7 @@ The app. You edit `strings.json` only.
 
 ## `public/`
 
-Static app assets: `favicon.svg` and `background-home.png`.
+Static app assets: `favicon.svg`, `background-home.png`, and `uxcc-logo.png`. The circular UXCC mark comes from the [official UXCC website](https://uxcontent.com/wp-content/uploads/2024/03/cropped-UXCC-THUMB-circle-192x192.png).
 
 ---
 

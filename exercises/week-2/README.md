@@ -6,6 +6,8 @@ Last week you got the app running and oriented yourself in the repo. This week y
 
 ## In session
 
+Use your chosen coding environment for edits and AI work. The app displays the files you save. Copilot commands in this card are optional examples; if your assistant does not support them, give it the same task and the relevant files directly.
+
 ### 1. File types that matter
 
 You'll work with three file types across this program:
@@ -14,7 +16,7 @@ You'll work with three file types across this program:
 
 **JSON (.json)**: structured data. `src/strings.json` is JSON. It's a collection of key-value pairs. Keys are labels; values are the strings you see in the UI. Engineers use JSON to manage content separately from code logic.
 
-**YAML (.yml or .yaml)**: another structured format, often used for configuration files. It uses indentation instead of brackets. Open `.github/workflows/content-check.yml`. It's the file that tells GitHub to run `npm run check`, `npm run evals`, and `npm run build` on every pull request. You'll see it run later today.
+**YAML (.yml or .yaml)**: another structured format, often used for configuration files. It uses indentation instead of brackets. Open `.github/workflows/content-check.yml`. It's the file that tells GitHub to run `npm run check:tooling`, `npm run check`, `npm run evals`, and `npm run build` on every pull request. You'll see it run later today.
 
 Open one example of each in VS Code and read through it. Notice what you can infer about the content just from the structure.
 
@@ -32,7 +34,7 @@ Open `content/foundations/personas.md`. Update the `[Your product name]` placeho
 
 Make it specific to your product. Personas that are too generic aren't useful for writing or for evaluating AI output. Read the Luma personas in ContentLab for a sense of depth, then write your own.
 
-When you finish, ask Copilot Chat: "Use the content-audit skill on personas.md." It reports gaps. You decide what to change.
+When you finish, ask your coding assistant: "Use the content-audit skill on personas.md." It reports gaps. You decide what to change.
 
 ### 4. Change one UI string
 
@@ -48,11 +50,13 @@ It reports errors if you broke the JSON or renamed a key. Fix any errors before 
 
 ### 5. Create a branch, commit
 
-If you're not already on a branch from last week, create one:
+Create your Week 2 branch from your current Week 1 branch. Your uncommitted edits come with you:
 
 ```bash
 git checkout -b your-name/week-2
 ```
+
+Replace `your-name` with your name in this command and the push command below. If you already created your Week 2 branch, switch to it instead of creating it again. Run `git branch` and `git status` to confirm the branch and your edits before committing.
 
 Commit each change on its own. If you have uncommitted `voice-and-tone.md` edits from Week 1, commit those first:
 
@@ -93,7 +97,7 @@ Fill in the PR template. The `write-pr-description` skill can draft it. Submit t
 
 ### 7. Read the checks, then merge
 
-On the PR page, find the checks at the bottom. GitHub runs the workflow you opened earlier. A green check means `npm run check`, `npm run evals`, and `npm run build` passed. A red X means something failed. Click **Details** and read why.
+On the PR page, find the checks at the bottom. GitHub runs the workflow you opened earlier. A green check means `npm run check:tooling`, `npm run check`, `npm run evals`, and `npm run build` passed. A red X means something failed. Click **Details** and read why.
 
 If the checks are green, click **Merge pull request**. Then update your local copy:
 
@@ -110,8 +114,12 @@ Your changes are now on `main` in your fork.
 
 ## After this session (before Week 3)
 
-Add the second persona to your `personas.md` file and open a second PR. Practice the full workflow on your own this time: branch, edit, commit, push, PR, check, merge. Use `/prep-pr` in Copilot Chat before you open it.
+Add the second persona to your `personas.md` file and open a second PR. Practice the full workflow on your own this time: branch, edit, commit, push, PR, check, merge. Ask your assistant to review the diff, run the checks, and draft the PR description. In supported Copilot sessions, `/prep-pr` does this.
 
-Come to Week 3 with both personas filled in and two merged PRs.
+In the second PR, also finish the remaining sections of `voice-and-tone.md` and complete `grammar-and-style.md`. Replace the placeholders with product-specific rules and examples. Keep the template headings. Read the guide blocks and the Luma example for depth, then write your own content.
 
-**Done when:** `personas.md` has two personas, and both PRs are merged on your fork.
+Run `npm run check` before opening the PR. Resolve the placeholder warnings for voice and tone, personas, and grammar and style. You will finish component patterns, accessibility, and system instructions after Week 3.
+
+Come to Week 3 with those three foundations files complete and two merged PRs.
+
+**Done when:** `voice-and-tone.md`, `personas.md`, and `grammar-and-style.md` have no unfinished placeholders, `personas.md` has two complete personas, and both PRs are merged on your fork.

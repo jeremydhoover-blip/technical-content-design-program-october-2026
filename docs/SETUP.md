@@ -12,13 +12,13 @@ Follow these steps before Week 1. If something fails, run `npm run doctor` and r
   - Mac: run `git --version` in Terminal. If Git is not installed, macOS prompts you to install it.
   - Windows: download Git for Windows from the link above.
 - **A GitHub account**: [Sign up](https://github.com/) if you do not have one
-- **GitHub Copilot**: needed in Week 3. See the section below. Free access is enough.
+- **GitHub Copilot in VS Code**: our recommended coding assistant from Week 1. Set it up using the steps below. You can use another coding assistant if you prefer.
 
 ---
 
 ## How to fork the repo
 
-1. Go to the cohort repository on GitHub. Your instructor shares the URL.
+1. Open the [program repository on GitHub](https://github.com/jeremydhoover-blip/technical-content-design-program-october-2026).
 2. Click **Fork** in the top-right corner.
 3. Keep the defaults and click **Create fork**.
 
@@ -113,14 +113,20 @@ Open [http://localhost:5173](http://localhost:5173). To stop the server, press `
 ## How to verify everything works
 
 1. The app loads at [http://localhost:5173](http://localhost:5173)
-2. You can open Home, ContentLab, Playground, Exercises, and Resources without errors
+2. You can open Home, ContentLab, Evaluations, Exercises, and Resources without errors
 3. ContentLab lists your five foundations files and the Luma worked example
 4. `npm run doctor` shows no `[fail]` lines
 5. `git status` runs without errors
 
 ---
 
-## Set up GitHub Copilot (Week 3)
+## Set up your coding assistant (Week 1)
+
+Open the repo in your chosen coding environment. Confirm your assistant can read a file you select and explain it. Use the assistant there to generate and revise copy, and the app to view your files and eval results.
+
+### Set up GitHub Copilot in VS Code
+
+We use VS Code with GitHub Copilot in the demonstrations from Week 1. Follow these steps before the first session if you can. We will help you get it working during Week 1. You can use another coding assistant if you prefer.
 
 1. In VS Code, open the Extensions view and install **GitHub Copilot** and **GitHub Copilot Chat**.
 2. Sign in with the same GitHub account when VS Code asks.
