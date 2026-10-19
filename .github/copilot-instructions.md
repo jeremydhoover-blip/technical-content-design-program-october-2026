@@ -21,6 +21,12 @@ Each participant builds a content system for their own product across the four w
 
 Participant limits do not block instructor-requested maintenance of docs, exercises, or tooling. Shared project rules also live in `AGENTS.md`.
 
+## Learning workflow
+
+We recommend VS Code with GitHub Copilot from Week 1 and use it for the demonstrations. You can use another coding assistant if you prefer. Check that it can read your repo files and follow the same tasks.
+
+Participants use their chosen coding assistant to read, edit, generate, and revise content in the repo. The app displays content, assembled context, exercises, resources, and eval results. It does not host an AI model. Do not add API setup or a local model requirement. Save generated test copy as samples in `content/evals.json`; run `npm run evals` and inspect the same results in Evaluations. Copilot-specific commands are optional conveniences, not prerequisites.
+
 ## Commands
 
 | Command | What it does |

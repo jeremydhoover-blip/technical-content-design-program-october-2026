@@ -28,3 +28,4 @@ Come to Week 2 ready to talk about what you changed and what you think is still 
 - Your fork from Week 1 is still cloned locally
 - You can open it in VS Code and run `npm run dev` successfully
 - Your `voice-and-tone.md` has your product name and at least 3 voice attributes filled in
+- Your Week 1 changes are saved but uncommitted, ready for your first commits in Week 2

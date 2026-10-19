@@ -4,7 +4,7 @@
 
 ## What to include in a good eval
 
-A useful eval criterion is specific, binary (pass/fail or scoreable), and testable by someone other than the author. Ask yourself: could someone else apply this criterion consistently without asking you what you meant?
+A useful eval criterion is specific, binary (pass or fail), and testable by someone other than the author. Ask yourself: could someone else apply this criterion consistently without asking you what you meant?
 
 Examples of weak criteria:
 - "Sounds like the brand" is too vague
@@ -13,7 +13,7 @@ Examples of weak criteria:
 Examples of strong criteria:
 - "Uses second person ('you'/'your') at least once"
 - "Contains no exclamation points"
-- "Button label is 1–3 words"
+- "Button label has at most 3 words"
 - "Error message includes a resolution path (a next step or action)"
 - "Does not use the words 'utilize,' 'leverage,' or 'facilitate'"
 
@@ -24,6 +24,8 @@ Start with your voice-and-tone anti-patterns. Each one is a potential eval crite
 ## Writing criteria in evals.json
 
 Each criterion has an `id`, a `description`, and a `type`. The types are `mustMatch`, `mustNotMatch`, `maxWords`, `minWords`, `maxChars`, `bannedWords`, and `sentenceCase`. The examples already in the file show the format. Copy one and change it.
+
+Use `maxWords` for an upper limit and a separate `minWords` criterion for a lower limit. A `maxWords` check alone accepts an empty string.
 
 A deliberately bad sample marked `"expect": "fail"` shows `[miss]` if every criterion passes it. That means your criteria are too weak. Add or sharpen a criterion until it catches the sample.
 
@@ -38,21 +40,22 @@ Some rules cannot be checked by a pattern, such as "sounds warm". That is fine. 
 You have 5 minutes. Suggested structure:
 
 1. **What product did you build for?** (30 seconds) Name it, one sentence on what it does.
-2. **Show your content system.** (2 minutes) Walk through 2–3 of your `content/foundations/` files. Point to one thing you're proud of in each.
-3. **What changed for you?** (1 minute) One concrete thing you understand now that you didn't at the start of Week 1.
-4. **What's next?** (30 seconds) One thing you'd do if you kept working on this.
+2. **Show your content system.** (2 minutes) Open ContentLab and explain one or two decisions in your files.
+3. **Show an eval.** (1 minute) Open Evaluations and explain one criterion, a test case, and what its result tells you.
+4. **What changed for you?** (1 minute) One concrete thing you understand now that you didn't at the start of Week 1.
+5. **What's next?** (30 seconds) One thing you'd do if you kept working on this.
 
 Don't try to show everything. Depth over breadth.
 
 ---
 
-## Connecting your system files to an AI tool workflow
+## Using your files with your coding assistant
 
-If you built a `content/instructions.md` file in Week 3, show how it works. Paste it as a system prompt in an AI assistant, ask it to write a specific piece of copy for your product, and show the output.
+Ask your coding assistant to read `content/instructions.md` and the relevant foundations files, then write a specific piece of copy. Check which files it read. Use a separate chat for a comparison without product context, and explain any limits to that comparison. Similar output is a valid result.
 
-Then show what happens without the context. The contrast is the point.
+Save generated copy as a sample in `content/evals.json`. Review and save the change, then run `npm run evals`. In the app, open **Evaluations** to view your criteria and expand **Test cases and results**. For a quick check, use **Evaluate your content** at the top of that page. The app reads your file; it does not generate criteria from the foundations files.
 
-If you're using GitHub Copilot in VS Code, remember that Copilot reads `.github/copilot-instructions.md` automatically, and that file now has a line pointing to your `content/instructions.md`. Ask it to write a button label or error message for your product and see whether it follows your rules without you prompting it explicitly. Then run the result through the Eval runner in the Playground.
+Ask your assistant to revise the copy using the failed checks and your feedback. Save and evaluate it again. Do not weaken a rule just to get a passing result.
 
 ---
 

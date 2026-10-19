@@ -77,7 +77,7 @@ Instructions given to a language model that set the rules for how it should resp
 Short for evaluation. A test you run against AI output to check whether it meets a defined standard. Evals can be manual (you read the output and score it) or automated (a script runs the check). Good evals have specific, testable criteria. In this repo, `npm run evals` runs yours.
 
 **Skill**  
-A folder in `.github/skills/` with a `SKILL.md` file that teaches Copilot a repeatable task, such as reviewing copy or writing a PR description. Copilot loads a skill when your request matches its description. A skill can include reference files and scripts.
+A folder in `.github/skills/` with a `SKILL.md` file that teaches Copilot a repeatable task, such as reviewing copy or writing a PR description. Supported assistants can discover a skill by its description. If your tool does not load it, ask it to read the SKILL.md file directly. A skill can include reference files and scripts.
 
 **Prompt file**  
 A saved request in `.github/prompts/` that you run in Copilot Chat by typing `/` and its name. Use one for a task you repeat.

@@ -30,9 +30,9 @@ To list what's in the current folder: `ls` (Mac/Linux) or `dir` (Windows)
 
 **Permission errors on Mac**: Try running the command without `sudo`. If that doesn't work, check the SETUP.md doc in this repo under Resources.
 
-**Lots of warnings**: npm warnings (lines starting with `WARN`) are usually fine. Errors (lines starting with `ERR!`) need attention. Read the last error line first. It's usually the root cause.
+**Lots of warnings**: Read warnings as well as errors. A warning can identify an unsupported Node version or a dependency issue. Check whether installation completed, then use the error message and `npm run doctor` to choose the next step.
 
-**Not sure what's wrong?** Run `npm run doctor`. It checks Node, Git, and your install, and tells you what to fix. You can also ask Copilot Chat to use the `setup-doctor` skill.
+**Not sure what's wrong?** Run `npm run doctor`. It checks Node, Git, and your install, and tells you what to fix. You can also ask your coding assistant to read `.github/skills/setup-doctor/SKILL.md` and explain the error. You do not need an assistant to run the commands.
 
 ---
 
@@ -46,12 +46,18 @@ Once it's open, look for keys that match text you saw in the app. For example: t
 
 ## Understanding the app structure
 
-The app has two main pieces:
+For orientation, start with these two pieces:
 
 1. **`src/main.js`**: the JavaScript that controls what gets rendered and when. This is the "logic."
 2. **`content/foundations/`**: the Markdown files you'll edit. These are the "content."
 
 The app reads your Markdown files and renders them in ContentLab. When you edit a file in `content/foundations/` and save, the browser refreshes automatically while `npm run dev` is running.
+
+---
+
+## Finding your evaluation rules
+
+Open Evaluations in the app and `content/evals.json` in your editor. The app displays the criteria in that file. The initial rules and test cases are examples, not rules generated from your foundations files. You will write your own in Week 4.
 
 ---
 

@@ -6,9 +6,11 @@ This session is about orientation. You're going to fork a real repository, run i
 
 ## In session
 
+Use your chosen coding environment for edits and AI work. The app displays the files you save. Copilot commands in this card are optional examples; if your assistant does not support them, give it the same task and the relevant files directly.
+
 ### 1. Fork the repo
 
-Your instructor will share the repo URL at the start of the session. Go to that URL on GitHub and click **Fork** in the top-right corner. This creates your own copy of the repo under your GitHub account.
+Open the [program repository on GitHub](https://github.com/jeremydhoover-blip/technical-content-design-program-october-2026) and click **Fork** in the top-right corner. This creates your own copy of the repo under your GitHub account.
 
 ### 2. Clone your fork
 
@@ -20,11 +22,13 @@ git clone https://github.com/YOUR-USERNAME/technical-content-design-program-octo
 
 Replace `YOUR-USERNAME` with your GitHub username and `technical-content-design-program-october-2026` with the name of the repo. This downloads your fork to your local machine.
 
-### 3. Open the folder in VS Code
+### 3. Open the cloned folder
 
-In VS Code: **File → Open Folder** → select the folder you just cloned.
+Open the folder you just cloned in your coding environment. In VS Code, choose **File > Open Folder**. Use that folder for your terminal commands and edits throughout the program.
 
 You should see the repo's file structure in the Explorer panel on the left.
+
+We recommend VS Code with GitHub Copilot and will help you set it up today. Follow [the assistant setup steps](../../docs/SETUP.md#set-up-your-coding-assistant-week-1), then ask Copilot to explain the root README. Check its answer against the file. If you prefer another coding assistant, use the same file and request there.
 
 ### 4. Install dependencies and launch the app
 
@@ -42,7 +46,7 @@ Check that your setup is healthy:
 npm run doctor
 ```
 
-Each line starts with `[ok]`, `[warn]`, or `[fail]`. Fix anything marked `[fail]` before you go on. If you need help, ask Copilot Chat to "use the setup-doctor skill."
+Each line starts with `[ok]`, `[warn]`, or `[fail]`. Fix anything marked `[fail]` before you go on. If you need help, ask your coding assistant to "use the setup-doctor skill."
 
 Then run:
 
@@ -54,7 +58,9 @@ Open your browser and go to [http://localhost:5173](http://localhost:5173). You 
 
 ### 5. Explore the app
 
-Click through the navigation: **Home, ContentLab, Playground, Exercises, Resources.** Take 5 minutes to read the copy. What do you notice about how information is organized? What's labeled clearly? What's confusing?
+Click through the navigation: **Home, ContentLab, Evaluations, Exercises, Resources.** Take 5 minutes to read the copy. What do you notice about how information is organized? What's labeled clearly? What's confusing?
+
+Open **Evaluations** to see the starter criteria in `content/evals.json`. You will replace them with your own in Week 4. You do not need to write evals today.
 
 Open **ContentLab**. You'll see your five foundations files, each marked with how many placeholders are left, and a worked example for a fictional product called Luma. Read one Luma file to see what finished looks like.
 
@@ -63,7 +69,7 @@ Then go back to VS Code and explore the repo:
 - Open `README.md`
 - Browse the `content/foundations/` folder
 - Look at the `exercises/` folder
-- Browse `.github/skills/`. Each folder is a task Copilot can do for you. You'll use them from Week 2.
+- Browse `.github/skills/`. Each folder describes a task an assistant can help with. If your assistant does not discover a skill, ask it to read that folder's `SKILL.md` file.
 - Find `src/strings.json`
 
 Open `src/strings.json`. Can you find a piece of text from the app in this file? Match one label you saw in the UI to a key in the JSON.

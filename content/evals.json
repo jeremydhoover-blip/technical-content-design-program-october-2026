@@ -1,5 +1,5 @@
 {
-  "about": "Evals for your content system. Each criterion is a plain, testable rule. Each sample is a piece of copy to test. Edit this file in Week 4, then run `npm run evals` or open Playground > Eval runner. Mark a deliberately bad sample with \"expect\": \"fail\" so the evals prove they catch it.",
+  "about": "Evals for your content system. Each criterion is a plain, testable rule. Each sample is a piece of copy to test. Edit this file in Week 4, then run `npm run evals` or open Evaluations. Mark a deliberately bad sample with \"expect\": \"fail\" so the evals prove they catch it.",
   "criteria": [
     {
       "id": "no-exclamation",
@@ -20,7 +20,7 @@
     },
     {
       "id": "button-length",
-      "description": "Button label is 1 to 3 words",
+      "description": "Button label is at most 3 words",
       "type": "maxWords",
       "value": 3,
       "appliesTo": ["button"]

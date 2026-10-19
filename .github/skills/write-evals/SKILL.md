@@ -6,7 +6,7 @@ argument-hint: "Optional: a rule or anti-pattern to turn into a criterion"
 
 # Write Evals
 
-Help the participant turn their content system into checks that anyone can apply the same way. The evals live in `content/evals.json` and run with `npm run evals` or in the app under Playground > Eval runner.
+Help the participant turn their content system into checks that anyone can apply the same way. The evals live in `content/evals.json` and run with `npm run evals` or in the app under Evaluations.
 
 ## Procedure
 

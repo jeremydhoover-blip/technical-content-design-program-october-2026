@@ -1,8 +1,25 @@
 # AI Tooling Guide
 
-This repo is set up so GitHub Copilot knows how the program works, what it may do, and what it must not do. Open the repo root in a current VS Code installation with Copilot enabled and signed in. Availability depends on the selected chat harness, workspace trust, and your settings. The tooling lives in the `.github/` folder, and scripts in `scripts/` do the checking.
+Use your chosen coding assistant with this repo. The Copilot configuration below is one supported workflow. Its availability depends on the client, workspace trust, and your settings. The tooling lives in the `.github/` folder, and scripts in `scripts/` do the checking.
 
 If you have never seen these files before, read this once, then try one skill.
+
+---
+
+## How you work
+
+We recommend VS Code with GitHub Copilot from Week 1 and use it for the demonstrations. You can use another coding assistant if you prefer. Check that it can read your repo files and follow the same tasks.
+
+Use VS Code, Codex, Claude, or another coding environment to edit the repo and work with your AI assistant. The app runs alongside it.
+
+- Follow the weekly task in Exercises.
+- Edit your content files in your coding environment. Review them in ContentLab when you save.
+- Ask your assistant to read the relevant files and write or revise copy. Check which files it used.
+- Save copy you want to test as samples in `content/evals.json`. Ask your assistant to help, then review the changes.
+- Run `npm run evals` in your terminal or inspect your criteria and test cases in Evaluations. Saving the file updates the app.
+- The optional context demonstration in Exercises > Week 3 shows assembled text and its size. Your assistant can read the files directly.
+
+The learning app needs no model connection, API key, or local AI installation. Use your existing coding assistant. Copilot-specific prompts and agents are optional; when your tool does not load them, ask for the same task directly and point it to the relevant repo files.
 
 ---
 
@@ -79,7 +96,7 @@ Skills and prompts call these. You can run them yourself.
 | `npm run evals -- --text "Save your work" --component button` | Tests one string |
 | `npm run prompt` | Prints the context an AI would receive from your files and its token size |
 
-The same logic runs in the app under Playground. The prompt builder and the eval runner use the shared code in `src/lib/`.
+Evaluations displays the results of the shared eval code in `src/lib/`. The optional Week 3 context demonstration uses the same assembly logic as `npm run prompt`.
 
 ---
 

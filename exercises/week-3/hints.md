@@ -1,42 +1,41 @@
 # Week 3: Hints
 
----
+## When your assistant ignores a rule
 
-## When AI ignores your instructions
+First, check that it read the right files. Name `content/instructions.md` and the relevant foundations files in your request. Inspect its file references or reading activity.
 
-If the AI isn't following your voice guidelines, it's usually one of these:
+Then check the rule itself. Replace vague instructions such as "Be friendly" with wording someone can assess. Resolve conflicts between files. Put important rules where a reader can find them quickly.
 
-1. **The instruction is too vague.** "Be friendly" doesn't help. "Don't use exclamation points. Use second person. Keep labels under 4 words." does.
-2. **The instruction is buried.** Put the most important rules at the top of your system prompt. Models weight earlier context more heavily.
-3. **There's a conflict.** If your prompt says "be concise" and also asks for detailed explanations, the model will make a judgment call. Resolve the conflict explicitly.
-
-Try adding one specific rule at a time and testing the output after each change. That way you'll know which rule is doing the work.
+Change one rule at a time and compare several responses. A single response does not prove that a rule works reliably.
 
 ---
 
-## Testing whether a system prompt is working
+## Comparing responses
 
-Don't just ask for one output and call it done. Test your prompt with:
-- A case where the rule clearly applies (e.g., an error message)
-- A case where you'd expect it to be borderline (e.g., a confirmation dialog)
-- A case where you'd expect it to fail without the rule (e.g., onboarding copy that might get too enthusiastic)
+Use the same writing request in separate chats, with and without the product files. A new chat inside your repo can still receive repo instructions. Check the context each chat used and record any limits to the comparison.
 
-If the output looks the same with and without your rule, the rule isn't landing. Rewrite it to be more specific.
+If the responses match, report that result. Check whether the first response already met the rule, whether both chats read the same files, or whether the request gave the rule a chance to matter. Different wording alone does not prove better copy.
 
 ---
 
-## Token limits in practical terms
+## Inspecting context
 
-A typical content system file (500–800 words) is roughly 700–1,000 tokens. Most current models can handle well over 100,000 tokens in a single context, so your five `content/foundations/` files together are well within range.
+Run `npm run prompt` to see assembled instructions and foundations text with an estimated token count. You can also expand **Optional: inspect assembled context** at the bottom of **Exercises > Week 3 > Task**.
 
-Where limits matter: if you're building an automated system that runs prompts at scale, token cost is real. Writing efficient, well-structured content files that say exactly what's needed (no filler) is good practice regardless.
+This demonstration helps you see what the files contribute. You do not need to copy the assembled text when your assistant can read the files directly. Token counts are estimates, not a measurement of the full chat or your tool's available context.
 
 ---
 
-## How Copilot finds your instructions
+## Using skills and instructions
 
-GitHub Copilot in VS Code reads `.github/copilot-instructions.md` automatically on every request in your repo. It does not read `content/instructions.md` by itself. You connect them by adding a line to `.github/copilot-instructions.md` that points to your file, such as: "When writing copy for [your product], follow `content/instructions.md` and the files in `content/foundations/`."
+Clients discover instructions and skills differently. If your assistant does not load a skill, ask it to read the relevant `.github/skills/<name>/SKILL.md` file. Check what it actually reads and runs.
 
-You can also attach `content/instructions.md` to a single chat with `#file`.
+In supported Copilot sessions, `.github/copilot-instructions.md` provides repo guidance when enabled. A line pointing to your product files asks Copilot to read them; it does not prove those files were read. Other assistants can use a direct request to read the same files.
 
-If Copilot seems to ignore your rules, ask it: "Which instructions files did you use for that answer?" Its references list shows what it read.
+---
+
+## Keeping your comparison
+
+Ask your assistant to add the copy to `samples` in `content/evals.json`. Give each sample a unique `id`, the correct `component`, and its `text`. Review and save the file, then run `npm run evals` or expand **Test cases and results** in Evaluations.
+
+The starter criteria cover only their example rules. A result tells you how the copy performed on those checks, not whether it follows every rule in your foundations files. Mark `"expect": "fail"` only when you deliberately expect a test case to fail at least one applicable check.

@@ -6,6 +6,8 @@ You've built a content system. Now you're going to show that it works, and think
 
 ## In session
 
+Use your chosen coding environment for edits and AI work. The app displays the files you save. Copilot commands in this card are optional examples; if your assistant does not support them, give it the same task and the relevant files directly.
+
 ### 1. Evals as a content design concept
 
 An eval (short for evaluation) is a test you run against AI output to check whether it meets a standard. In engineering contexts, evals are often automated: a script runs a prompt, gets a response, and checks it against a rubric.
@@ -26,7 +28,7 @@ Samples marked `"expect": "fail"` are deliberately bad. They prove your criteria
 npm run evals -- --text "Save your work" --component button
 ```
 
-Or open **Playground > Eval runner** in the app and paste copy in.
+Open **Evaluations**. Use **Evaluate your content** for a single string, review **Your eval criteria**, or expand **Test cases and results** to inspect the samples saved in your file. Expand **Technical details** on a criterion to inspect its JSON definition.
 
 ### 2. What to evaluate
 
@@ -40,11 +42,11 @@ Three dimensions worth checking for any AI-generated copy:
 
 ### 3. CI/CD: a brief orientation
 
-CI/CD stands for Continuous Integration / Continuous Deployment. It's the automated system that runs tests and ships code when changes are merged to `main`.
+CI/CD stands for Continuous Integration / Continuous Deployment. CI runs automated checks on changes. CD automates delivery or deployment. This repo checks and builds your work; it does not deploy a live product.
 
 Where content fits: in some organizations, content changes go through the same CI/CD pipeline as code. A PR that updates a UI string triggers a build, automated checks run, and if everything passes, the change deploys.
 
-You've already seen this. Open `.github/workflows/content-check.yml`. On every pull request it runs `npm run check:tooling`, `npm run check`, `npm run evals`, and `npm run build`. Your evals are now part of CI. If a criterion fails on one of your samples, the PR shows a red X.
+You've already seen this. Open `.github/workflows/content-check.yml`. On every pull request it runs `npm run check:tooling`, `npm run check`, `npm run evals`, and `npm run build`. Your evals are now part of CI. An unexpected sample result makes the check fail. A deliberately bad sample marked `"expect": "fail"` counts as working when at least one applicable criterion catches it.
 
 On a fork, GitHub may ask you to enable Actions the first time. Click **Enable workflows** on the Actions tab.
 
@@ -54,6 +56,7 @@ The workflow you've been practicing, branch, PR, review, merge, is the same work
 
 Each participant walks through their fork. You have about 5 minutes. Show:
 - Your `content/foundations/` files and what you built
+- One criterion in Evaluations and a test case showing what it catches
 - One change you made that you're proud of
 - What changed from Week 1 to Week 4: what do you understand now that you didn't before?
 - What you'd do next if this were a real product
@@ -68,7 +71,7 @@ In `content/evals.json`, replace the example criteria with ones for your product
 2. Turn each into a criterion that passes or fails with no judgment call. The `write-evals` skill coaches you.
 3. Add samples: one good and one deliberately bad per criterion. Mark bad samples `"expect": "fail"`.
 4. Run `npm run evals` until every sample behaves as expected.
-5. Ask Copilot for copy with your instructions on, paste it into the Eval runner, and see whether it passes.
+5. Ask your coding assistant to read your instructions and write copy for one component. Save that copy as a sample in `content/evals.json`, review the change, and run `npm run evals`. Inspect the results in Evaluations. Ask your assistant to revise the copy using the failed criteria and your feedback, then save and check it again. Keep the criteria unless you decide the rule itself needs to change.
 
 ---
 
@@ -80,6 +83,6 @@ Run the strict check, which also fails on leftover placeholders:
 npm run check:strict
 ```
 
-Fix what it finds. Use `/prep-pr` for the final PR. Commit, push, open the PR on your fork, wait for the checks to pass, and merge.
+Fix what it finds. Ask your assistant to review the diff and run the checks before the final PR. In supported Copilot sessions, use `/prep-pr`. Commit, push, open the PR on your fork, wait for the checks to pass, and merge.
 
 **Done when:** `npm run check:strict` shows no errors, `npm run evals` passes, and your final PR is merged with green checks.
