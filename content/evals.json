@@ -37,7 +37,7 @@
       "id": "error-next-step",
       "description": "Error message tells the user what to do next",
       "type": "mustMatch",
-      "pattern": "\\b(try|check|enter|use|add|upload|sign in|contact|retry|choose|select)\\b",
+      "pattern": "\\b(try|check|enter|use|add|upload|sign in|contact|retry|choose|select|reload)\\b",
       "flags": "i",
       "appliesTo": ["error"]
     },

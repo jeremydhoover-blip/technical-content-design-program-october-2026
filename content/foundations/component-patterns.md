@@ -1,6 +1,5 @@
-# Component patterns: [Your product name]
+# Component patterns: Insight Timer
 
-> **Guide:** This file defines the copy rules for each recurring UI component, with examples of good and bad copy. It is the file an AI uses most when writing a specific string, so be concrete: give a rule, a length limit where it matters, and examples. Replace every `[bracketed]` placeholder. Add a section for any component your product uses that is not listed. See the finished version for Luma in ContentLab > Examples.
 
 Use this file when writing a new string or reviewing an existing one for consistency.
 
@@ -11,29 +10,38 @@ Use this file when writing a new string or reviewing an existing one for consist
 Buttons tell users what will happen when they click.
 
 **Rules:**
-- [Rule about verb form, for example imperative verbs]
-- [Rule about length, for example 1 to 3 words]
-- [Rule about specificity]
+- CTA buttons should use the imperative verb form
+- Menu buttons, or other navigational elements, may be nouns or noun phrases
+- Buttons should be 4 words maximum
+- Use title case, but keep common words like articles, prepositions and conjunctions in lowercase
 
-**Primary button:** [2 or 3 examples]
+**Primary button:** 
+- Get the App / Browse / Add to Calendar
 
-**Secondary button:** [2 or 3 examples]
+**Secondary button:** 
+- View Profile / Show More
 
-**Destructive button:** [Rule and examples]
+**Destructive button:** 
+- Cancel / Stop Recording / End Session
+- Always follow destructive buttons with a separate modal/pop-up requesting user confirmation
 
 ---
 
 ## Labels and placeholder text
 
 **Rules:**
-- [Rule for labels]
-- [Rule for placeholder text]
+- Use title case for navigation labels that are 6 words or under
+- Use sentence case for labels longer than 7 words
+- Keep common words like articles, prepositions and conjunctions in lowercase regardless of length
+- Labels may have multiple grammatical structures: nouns, noun phrases, phrasal verbs, sentence fragments
+- Placeholder text in empty fields should provide instructions. Start with a verb and then the field label. For example: "Enter password"
+- Labels may use contextual information pulled from other elements of the page
 
 **Good:**
-> `[example]`
+> `More Meditations from Krista Neff`
 
 **Not:**
-> `[example]`
+> `More Meditations from this Teacher`
 
 ---
 
@@ -42,85 +50,96 @@ Buttons tell users what will happen when they click.
 ### Inline field errors
 
 **Rules:**
-- [Rule]
-- [Rule]
+- Use the active voice 
+- Avoid phrasing that places blame on the user for causing the error
+- Use sentence case
+- Tell customers what action they need to take to resolve the error, if possible
 
 **Good:**
-> "[example]"
+> "This password is incorrect. Please try again."
+
+
 
 **Not:**
-> "[example]"
+> "Invalid password"
+
 
 ### System errors
 
 **Rules:**
-- [Rule]
-- [Rule]
+- Use the active voice 
+- Avoid phrasing that places blame on the user for causing the error
+- Use sentence case
+- Tell users what action they need to take to resolve the error
+- Use concrete language explaining the nature of the error
+- Don't apologize
 
 **Good:**
-> "[example]"
+>"This recording is no longer available. You can search our library to find a new one on the same topic."
+>"This retreat is full and can't accept any more registrations."
 
 **Not:**
-> "[example]"
+> "This recording has been removed."
+> "No more registrations allowed."
 
 ---
 
 ## Empty states
 
+Empty states appear when a section has no content yet, or when a search or filter returns nothing.
+
+
 **Rules:**
-- [Rule]
-- [Rule]
+- Tell the user what this space is for
+- Tell users what action they need to take next
+- Don't over-explain or over-celebrate
+- Match the tone to the context
 
 **Good (first time):**
-> "[example]"
+> "Welcome to Insight Timer. What intention do you want to set today?"
 
 **Good (after a search or filter):**
-> "[example]"
+>"We couldn't find any recordings with this search term. Please start a new search."
 
 **Not:**
-> "[example]"
+> "No recordings found."
 
 ---
 
 ## Confirmation dialogs
 
 **Rules:**
-- [Rule for the heading]
-- [Rule for the body]
-- [Rule for the buttons]
+- Avoid using the phrase "are you sure?"
+- Restate what action the customer is attempting to take
+- If there are consequences to the user for taking this action, state them clearly, but don't resort to fear-mongering
+- Ensure the buttons state two distinct and opposing options
 
 **Good:**
-> **[Heading]**
-> [Body]
-> `[Confirm]` `[Cancel]`
+> **Do you want to cancel your retreat reservation?**
+> If you cancel this reservation, the host will keep the deposit you paid when you first reserved your spot.
+> `Cancel my reservation` `Keep my reservation`
 
 **Not:**
-> "[example]"
+> **Are you sure about cancelling your retreat reservation?**
+> If you cancel this reservation, you will forfeit your deposit.
+> `Cancel` `Go Back`
 
 ---
 
 ## Toasts and notifications
 
 **Rules:**
-- [Rule]
-- [Rule]
+- Inform people if the action they took was successful or unsuccessful
+- State clearly when a scheduled event is about to start, and include the name of either the course or the teacher
 
 **Good:**
-> "[example]"
+> "Your meditation course with Serena starts in 30 minutes."
 
 **Not:**
-> "[example]"
+> "Your meditation course starts soon."
 
 ---
 
 ## Tooltips
 
-**Rules:**
-- [Rule]
-- [Rule]
-
-**Good:**
-> "[example]"
-
-**Not:**
-> "[example]"
+Not applicable

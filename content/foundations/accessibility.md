@@ -1,8 +1,7 @@
-# Accessibility writing standards: [Your product name]
+# Accessibility writing standards: Insight Timer
 
-> **Guide:** This file sets the baseline for writing that works for everyone, including people using screen readers and people reading under stress. The starter rules below follow common accessibility guidance. Keep them, tighten them for your product, and add the specifics: reading level target, how required fields are marked, how links that open new tabs are described. Replace every `[bracketed]` placeholder. See the finished version for Luma in ContentLab > Examples.
 
-These are baseline requirements for every string in [Your product name], not optional extras.
+These are baseline requirements for every string in Insight Timer, not optional extras.
 
 ---
 
@@ -11,14 +10,14 @@ These are baseline requirements for every string in [Your product name], not opt
 **Rules:**
 - Use common words over formal ones. "Use" not "utilize."
 - Write short sentences. One idea each.
-- [Your reading level target, for example grade 8]
-- [Rule for technical terms, for example define on first use]
+- Write to a grade 10 reading level
+- In situations where there is no plain-language equivalent for a medical, therapeutic or scientific term (eg: perimenopause, cortisol, biofeedback, parasympathetic nervous system, adrenaline), use that term. However, keep these terms to a minimum throughout the text
 
 **Good:**
-> "[example]"
+> "Whether you’re struggling with sleep, anxiety, ADHD or perimenopause, our free library of clinically validated techniques gives you a set of tools that work for you."
 
 **Not:**
-> "[example]"
+> "Regular meditation and bodily awareness can decrease your levels of cortisol, increase your levels of melotonin, and encourage auditory-neural entrainment."
 
 ---
 
@@ -28,13 +27,13 @@ These are baseline requirements for every string in [Your product name], not opt
 - Convey meaning, not appearance.
 - Decorative images use an empty `alt` attribute.
 - Do not start with "Image of" or "Icon of."
-- [Rule for icon-only buttons]
+- For icon-only buttons, the alt text should tell users what destination the button leads to, or what action will be taken upon pressing it
 
 **Good:**
-> `[example alt text or aria-label]`
+> `Start playing "Unwind into Surreder: 10-Minute Release and Relinquish" by Sarah Blondin`
 
 **Not:**
-> `[example]`
+> `Play`
 
 ---
 
@@ -43,13 +42,13 @@ These are baseline requirements for every string in [Your product name], not opt
 **Rules:**
 - Describe where the link goes. Never "click here."
 - Each link on a page has unique, meaningful text.
-- [Rule for links that open in a new tab]
+- Use the active voice for link alt text where possible
 
 **Good:**
-> "[example]"
+> "Review meditation tracks about metaphysics"
 
 **Not:**
-> "[example]"
+> "Metaphysics"
 
 ---
 
@@ -57,23 +56,24 @@ These are baseline requirements for every string in [Your product name], not opt
 
 **Rules:**
 - Every field has a visible label. Placeholders are never labels.
-- [Rule for marking required or optional fields]
-- [Rule for where instructions and limits go]
+- If a field label has a common acronym associated with it, spell out the acronym first, then introduce the acronym immediately afterwards in brackets
+- If a field is optional, state that information explicitly
+- Placeholder text within a field should restate the field label and include a verb
 
 ---
 
 ## Error identification
 
 **Rules:**
-- Say which field failed and how to fix it.
+- Say which field failed and how to fix it, including why the error occurred.
 - Never rely on color alone.
-- [Rule for forms with multiple errors]
+- If multiple errors occur on a screen, a master error should appear listing all the individual errors, so users can address them individually
 
 **Good:**
-> "[example]"
+> "Please accept the Terms and Conditions to continue"
 
 **Not:**
-> "[example]"
+> "Check the checkbox to continue."
 
 ---
 
@@ -83,6 +83,7 @@ These are baseline requirements for every string in [Your product name], not opt
 - One concept per sentence. One task per screen where possible.
 - Numbered lists for steps. Bulleted lists for unordered items.
 - Use the same word for the same thing everywhere.
-- [One rule specific to your product or audience]
+- Titles for meditation tracks should be 10 words maximum
+- Meditation tracks uploaded by the same Teacher should be unique within that Teacher's offerings 
 
-**Test:** [How will you check that a string is easy to read, for example "a new user can read it once and know what to do"]
+**Test:** An Insight Timer listener should know exactly what benefit a particular meditation track is supposed to offer before pressing Play.
