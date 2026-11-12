@@ -364,7 +364,7 @@ function renderPromptBuilder() {
     <div class="doc-viewer playground">
       <h1>${strings.playground.promptHeading}</h1>
       <p>${strings.playground.promptDescription}</p>
-      <div class="playground-controls">
+      <div class="playground-controls" role="group" aria-label="${strings.playground.evalRunnerLabel}">
         <div class="field">
           <label class="field-label" for="prompt-source">${strings.playground.sourceLabel}</label>
           <select id="prompt-source" class="setting-select">

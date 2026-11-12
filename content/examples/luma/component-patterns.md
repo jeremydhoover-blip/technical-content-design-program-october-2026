@@ -63,7 +63,7 @@ Placeholder text appears inside an empty input field. It disappears when the use
 
 **Not:**
 > `Enter your email address`  
-> `Type something here...`
+> `Type something here.`
 
 ---
 

@@ -1,8 +1,8 @@
-# Accessibility writing standards: [Your product name]
+# Accessibility writing standards: The Saizen
 
-> **Guide:** This file sets the baseline for writing that works for everyone, including people using screen readers and people reading under stress. The starter rules below follow common accessibility guidance. Keep them, tighten them for your product, and add the specifics: reading level target, how required fields are marked, how links that open new tabs are described. Replace every `[bracketed]` placeholder. See the finished version for Luma in ContentLab > Examples.
+> **Guide:** 
 
-These are baseline requirements for every string in [Your product name], not optional extras.
+These are baseline requirements for every string in The Saizen, not optional extras.
 
 ---
 
@@ -11,30 +11,33 @@ These are baseline requirements for every string in [Your product name], not opt
 **Rules:**
 - Use common words over formal ones. "Use" not "utilize."
 - Write short sentences. One idea each.
-- [Your reading level target, for example grade 8]
-- [Rule for technical terms, for example define on first use]
+- Write copy at an 8th-grade reading level.
+- Define acronyms the first time they're used.
 
 **Good:**
-> "[example]"
+> "The JASRAC (Japanese Society for Rights of Authors, Composers and Publishers) copyright strikes YouTube reaction videos for Sony artists."
 
 **Not:**
-> "[example]"
+> "The JASRAC will copyright strike your reaction video if you react to Sony artists."
 
 ---
 
 ## Alternative text for images and icons
+Alt text describes images and icons for users who can't see them, including screen reader users and users in low-bandwidth contexts where images don't load.
 
 **Rules:**
-- Convey meaning, not appearance.
-- Decorative images use an empty `alt` attribute.
-- Do not start with "Image of" or "Icon of."
-- [Rule for icon-only buttons]
+- Write alt text that conveys meaning, not just what the image looks like
+- For decorative images (visual embellishment with no informational value), use an empty alt attribute: alt=""
+- For icons that accompany a visible label, the icon typically needs no alt text. The label carries the meaning.
+- For standalone icon buttons (no visible label), the button needs an accessible name via aria-label or a visually hidden label
+- Don't start with "Image of" or "Icon showing" because screen readers already announce "image"
 
 **Good:**
-> `[example alt text or aria-label]`
+> alt="Bar chart showing the number of increasing J-Rock YouTube views the past ten years."
 
 **Not:**
-> `[example]`
+> alt="chart"
+> alt="Image of a bar chart"
 
 ---
 
@@ -43,46 +46,53 @@ These are baseline requirements for every string in [Your product name], not opt
 **Rules:**
 - Describe where the link goes. Never "click here."
 - Each link on a page has unique, meaningful text.
-- [Rule for links that open in a new tab]
+- Each link on a page should have unique, meaningful text because screen reader users often navigate by links alone.
+- If a link opens in a new tab, indicate this: "Read the setup guide (opens in new tab)."
 
 **Good:**
-> "[example]"
+> "Read the setup guide before your first session."
 
 **Not:**
-> "[example]"
+> "Click here to read the setup guide."
+> "For more information, visit this page."
 
 ---
 
 ## Form labels and instructions
-
 **Rules:**
-- Every field has a visible label. Placeholders are never labels.
-- [Rule for marking required or optional fields]
-- [Rule for where instructions and limits go]
+Every form field needs a visible label. Users shouldn't have to infer what a field is for.
+- Always use a visible label. Never rely on placeholder text alone
+- Labels appear above the field, not inside it
+- Write labels as brief noun phrases: "Email address"
+- For required fields, mark them consistently. Only mark required fields.
+- Instructions that apply to the whole form (like password requirements) belong before the form or directly below the relevant field, not after the submit button.
 
 ---
 
 ## Error identification
 
 **Rules:**
-- Say which field failed and how to fix it.
-- Never rely on color alone.
-- [Rule for forms with multiple errors]
+- Identify the specific field or action that caused the error. Don't just say "there were errors on this page."
+- Describe the error in plain language: "Enter a valid email address" not "Invalid input."
+- Tell users how to resolve it.
+- Don't rely on color alone to communicate an error. Include a text label or icon with text.
+- For forms with multiple errors, list all of them at the top and also inline next to each affected field.
 
 **Good:**
-> "[example]"
+> "Enter a valid email address." (inline, below the field)
 
 **Not:**
-> "[example]"
+> "This field contains an error." (no specifics)
+> "An error indicated only by a red border (no text)"
 
 ---
 
 ## Reading level and cognitive load
 
 **Rules:**
-- One concept per sentence. One task per screen where possible.
-- Numbered lists for steps. Bulleted lists for unordered items.
+- Users will largely read content on mobile phones. Ensure paragraphs are not very large.
+- When writing about international artists, explain cultural terms and define foreign words. 
 - Use the same word for the same thing everywhere.
-- [One rule specific to your product or audience]
+- J-Rock is genre-fluid. Be mindful how you describe the music. Different people define genres differently so ladder your content up to consistent definitions of genres. 
 
-**Test:** [How will you check that a string is easy to read, for example "a new user can read it once and know what to do"]
+**Test:** Testing your copy: After writing, ask: can someone read this in one pass without having to go to a Japanese dictionary, an English dictionary, or a music dictionary to understand a term.
